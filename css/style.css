@@ -2700,7 +2700,7 @@ div[node-type="ad-pc-feed"] {
 .cc-item {
     padding-bottom: 1px;
     text-decoration: none;
-    border-bottom: 2px solid #F08080;
+    border-bottom: 2px dashed #828282;
     word-wrap: break-word;
 }
 
