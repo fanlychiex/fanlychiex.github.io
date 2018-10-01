@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Fanlychie Blog</title>
-    <link>https://fanlychiex.github.io/tags/</link>
+    <link>https://fanlychie.github.io/tags/</link>
     <description>Recent content in Tags on Fanlychie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Mon, 24 Sep 2018 20:22:31 +0800</lastBuildDate>
     
-	<atom:link href="https://fanlychiex.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fanlychie.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Maven</title>
-      <link>https://fanlychiex.github.io/tags/maven/</link>
+      <link>https://fanlychie.github.io/tags/maven/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/tags/maven/</guid>
+      <guid>https://fanlychie.github.io/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nexus</title>
-      <link>https://fanlychiex.github.io/tags/nexus/</link>
+      <link>https://fanlychie.github.io/tags/nexus/</link>
       <pubDate>Sat, 22 Sep 2018 09:59:59 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/tags/nexus/</guid>
+      <guid>https://fanlychie.github.io/tags/nexus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notepad</title>
-      <link>https://fanlychiex.github.io/tags/notepad/</link>
+      <link>https://fanlychie.github.io/tags/notepad/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/tags/notepad/</guid>
+      <guid>https://fanlychie.github.io/tags/notepad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Other</title>
-      <link>https://fanlychiex.github.io/tags/other/</link>
+      <link>https://fanlychie.github.io/tags/other/</link>
       <pubDate>Thu, 27 Sep 2018 11:42:46 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/tags/other/</guid>
+      <guid>https://fanlychie.github.io/tags/other/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Samda</title>
-      <link>https://fanlychiex.github.io/tags/samda/</link>
+      <link>https://fanlychie.github.io/tags/samda/</link>
       <pubDate>Sun, 23 Sep 2018 19:59:59 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/tags/samda/</guid>
+      <guid>https://fanlychie.github.io/tags/samda/</guid>
       <description></description>
     </item>
     

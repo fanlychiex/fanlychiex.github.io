@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Other on Fanlychie Blog</title>
-    <link>https://fanlychiex.github.io/tags/other/</link>
+    <link>https://fanlychie.github.io/tags/other/</link>
     <description>Recent content in Other on Fanlychie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 27 Sep 2018 11:42:46 +0800</lastBuildDate>
     
-	<atom:link href="https://fanlychiex.github.io/tags/other/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fanlychie.github.io/tags/other/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>本站通告</title>
-      <link>https://fanlychiex.github.io/post/readme/</link>
+      <link>https://fanlychie.github.io/post/readme/</link>
       <pubDate>Thu, 27 Sep 2018 11:42:46 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/post/readme/</guid>
+      <guid>https://fanlychie.github.io/post/readme/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本站已从&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;迁移转到&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;(Hugo自称是&lt;code&gt;The world’s fastest framework for building websites&lt;/code&gt;)。Hugo是一个高效的静态网站生成器，它的生成速度比Hexo更快 (Hexo是真的慢)，且使用Hugo在本地编辑完成保存时，会自动触发浏览器的即时刷新动作，编辑完成就能立即看到文章最终的整体效果，给人的体验感很不错。&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maven on Fanlychie Blog</title>
-    <link>https://fanlychiex.github.io/tags/maven/</link>
+    <link>https://fanlychie.github.io/tags/maven/</link>
     <description>Recent content in Maven on Fanlychie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Mon, 24 Sep 2018 20:22:31 +0800</lastBuildDate>
     
-	<atom:link href="https://fanlychiex.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fanlychie.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Maven Help Plugin</title>
-      <link>https://fanlychiex.github.io/post/maven-plugins-help/</link>
+      <link>https://fanlychie.github.io/post/maven-plugins-help/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/post/maven-plugins-help/</guid>
+      <guid>https://fanlychie.github.io/post/maven-plugins-help/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;http://maven.apache.org/plugins/maven-help-plugin&#34;&gt;Maven Help Plugin&lt;/a&gt;可以用来查看相关项目或系统的帮助信息，也可以用来查看其它插件的帮助信息，如插件的目标、参数、使用要求等。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Maven Super POM</title>
-      <link>https://fanlychiex.github.io/post/maven-super-pom/</link>
+      <link>https://fanlychie.github.io/post/maven-super-pom/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/post/maven-super-pom/</guid>
+      <guid>https://fanlychie.github.io/post/maven-super-pom/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;所有maven模块（项目）的POM（Project Object Model，项目对象模型）都隐式的继承了&lt;a href=&#34;http://maven.apache.org/ref/3.5.4/maven-model-builder/super-pom.html&#34;&gt;Super POM&lt;/a&gt;。Super POM中定义了一组标准的配置变量。maven模块（项目）的POM会自动继承这些配置变量，你可以在maven模块（项目）的POM文件中直接使用它们，或者通过重新声明以覆盖它们。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>Nexus3搭建Maven私服</title>
-      <link>https://fanlychiex.github.io/post/nexus3-setup/</link>
+      <link>https://fanlychie.github.io/post/nexus3-setup/</link>
       <pubDate>Sat, 22 Sep 2018 09:59:59 +0800</pubDate>
       
-      <guid>https://fanlychiex.github.io/post/nexus3-setup/</guid>
+      <guid>https://fanlychie.github.io/post/nexus3-setup/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.sonatype.com/download-oss-sonatype&#34;&gt;Sonatype Nexus Repository OSS&lt;/a&gt;自称是&lt;code&gt;The world&#39;s first and only universal repository solution that&#39;s FREE to use&lt;/code&gt;。Nexus是目前用来搭建&lt;a href=&#34;http://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt;私服仓库最多的免费开源工具。&lt;/p&gt;
 &lt;/blockquote&gt;
