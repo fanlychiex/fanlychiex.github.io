@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nexus on Fanlychie Blog</title>
+    <link>https://fanlychie.github.io/tags/nexus/</link>
+    <description>Recent content in Nexus on Fanlychie Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 22 Sep 2018 09:59:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://fanlychie.github.io/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nexus3搭建Maven私服</title>
+      <link>https://fanlychie.github.io/post/nexus3-setup/</link>
+      <pubDate>Sat, 22 Sep 2018 09:59:59 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/nexus3-setup/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sonatype.com/download-oss-sonatype&#34;&gt;Sonatype Nexus Repository OSS&lt;/a&gt;自称是&lt;code&gt;The world&#39;s first and only universal repository solution that&#39;s FREE to use&lt;/code&gt;。Nexus是目前用来搭建&lt;a href=&#34;http://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt;私服仓库最多的免费开源工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

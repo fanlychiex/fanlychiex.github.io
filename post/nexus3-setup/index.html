@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Nexus3搭建Maven私服 &middot; Fanlychie Blog</title>
+    <meta name="generator" content="Hugo 0.48" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Fanlychie">
+    
+      <meta name="description" content="nexus,nexus3,maven,安装,配置,搭建">
+      <meta name="keywords" content="nexus,nexus3,maven,安装,配置,搭建">
+    
+    
+    <link rel="canonical" href="https://fanlychie.github.io/post/nexus3-setup/"/>
+    <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/monokai.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Nexus3搭建Maven私服" />
+<meta property="og:description" content="nexus,nexus3,maven,安装,配置,搭建" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fanlychie.github.io/post/nexus3-setup/" /><meta property="article:published_time" content="2018-09-22T09:59:59&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-22T09:59:59&#43;08:00"/>
+    
+    
+<meta itemprop="name" content="Nexus3搭建Maven私服">
+<meta itemprop="description" content="nexus,nexus3,maven,安装,配置,搭建">
+
+
+<meta itemprop="datePublished" content="2018-09-22T09:59:59&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-22T09:59:59&#43;08:00" />
+<meta itemprop="wordCount" content="143">
+
+
+
+<meta itemprop="keywords" content="nexus,maven,notepad," />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nexus3搭建Maven私服"/>
+<meta name="twitter:description" content="nexus,nexus3,maven,安装,配置,搭建"/>
+
+    
+
+    
+
+    
+    <script src="https://libs.cdnjs.net/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://fanlychie.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('https://fanlychie.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">Fanlychie Blog</span>
+      </a>
+      <nav id="main-nav">
+          
+
+          
+
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+
+          
+
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://fanlychie.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg">
+      
+      <h2 id="name">Fanlychie</h2>
+      <h3 id="title">I do not know where to go , <br> but I have been on the road</h3>
+      
+      
+          <a id="follow" href="https://github.com/fanlychie">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        5
+        <span>Posts</span>
+      </div>
+      <div class="article-info-block">
+        
+          5
+        
+        <span>
+            Tags
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    
+    <h1 itemprop="name">
+        <a class="article-title" href="https://fanlychie.github.io/post/nexus3-setup/">Nexus3搭建Maven私服</a>
+    </h1>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-pencil-square-o"></i>
+            <time datetime="2018-09-22 09:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-22</time>
+            
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-paper-plane-o"></i>
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/nexus">nexus</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/notepad">notepad</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p><a href="https://www.sonatype.com/download-oss-sonatype">Sonatype Nexus Repository OSS</a>自称是<code>The world's first and only universal repository solution that's FREE to use</code>。Nexus是目前用来搭建<a href="http://maven.apache.org/">Apache Maven</a>私服仓库最多的免费开源工具。</p>
+</blockquote>
+
+<p></p>
+
+<h4 id="环境">环境</h4>
+
+<p><code>CentOS7</code> <code>Java8</code> <code>Nexus3</code></p>
+
+<h4 id="下载">下载</h4>
+
+<p><a href="https://www.sonatype.com/download-oss-sonatype">官网</a>下载所需安装包：<a href="http://download.sonatype.com/nexus/3/nexus-3.12.1-01-unix.tar.gz">nexus-3.12.1-01-unix.tar.gz</a>。</p>
+
+<h4 id="安装">安装</h4>
+
+<p>不建议用<code>root</code>账户安装和启动。建议用普通的部署账户安装和启动。</p>
+
+<p>创建一个<code>nexus3</code>目录</p>
+
+<pre><code>$ mkdir nexus3
+</code></pre>
+
+<p>解压缩到<code>nexus3</code>目录</p>
+
+<pre><code>$ tar zxvf nexus-3.12.1-01-unix.tar.gz -C nexus3
+</code></pre>
+
+<h4 id="配置-可选">配置（可选）</h4>
+
+<p>nexus3/nexus-3.12.1-01/bin/nexus.vmoptions</p>
+
+<pre><code># JVM 参数配置
+-Xms256M
+-Xmx1024M
+-XX:MaxDirectMemorySize=2G
+-XX:+UnlockDiagnosticVMOptions
+-XX:+UnsyncloadClass
+-XX:+LogVMOutput
+# 日志文件
+-XX:LogFile=../sonatype-work/nexus3/log/jvm.log
+-XX:-OmitStackTraceInFastThrow
+-Djava.net.preferIPv4Stack=true
+-Dkaraf.home=.
+-Dkaraf.base=.
+-Dkaraf.etc=etc/karaf
+-Djava.util.logging.config.file=etc/karaf/java.util.logging.properties
+# 仓库数据目录
+-Dkaraf.data=../sonatype-work/nexus3
+-Djava.io.tmpdir=../sonatype-work/nexus3/tmp
+-Dkaraf.startLocalConsole=false
+</code></pre>
+
+<h4 id="运行">运行</h4>
+
+<p>前台启动命令</p>
+
+<pre><code>$ bin/nexus run
+</code></pre>
+
+<p>后台启动命令</p>
+
+<pre><code>$ bin/nexus start
+</code></pre>
+
+<p>停止命令</p>
+
+<pre><code>$ bin/nexus stop
+</code></pre>
+
+<p>重启命令</p>
+
+<pre><code>$ bin/nexus restart
+</code></pre>
+
+<h4 id="开放防火墙端口">开放防火墙端口</h4>
+
+<p><code>nexus</code>服务默认运行在<code>8081</code>端口</p>
+
+<pre><code>$ firewall-cmd --permanent --add-port=8081/tcp
+$ firewall-cmd --reload
+</code></pre>
+
+<h4 id="访问">访问</h4>
+
+<p><code>http://your_ip:8081</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_1.png" alt="" /></p>
+
+<p>默认账户密码：<code>admin/admin123</code></p>
+
+<h4 id="maven仓库">maven仓库</h4>
+
+<table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>maven-central</td>
+<td>proxy</td>
+<td>远程中央仓库</td>
+</tr>
+
+<tr>
+<td>maven-releases</td>
+<td>hosted</td>
+<td>私库发行仓库</td>
+</tr>
+
+<tr>
+<td>maven-snapshots</td>
+<td>hosted</td>
+<td>私库快照仓库</td>
+</tr>
+
+<tr>
+<td>maven-public</td>
+<td>group</td>
+<td>仓库组</td>
+</tr>
+</tbody>
+</table>
+
+<p>nexus3自带的 nuget-* 仓库可以删除，nuget是微软.NET开发平台的软件包管理器，这里用不到。</p>
+
+<h4 id="仓库类型">仓库类型</h4>
+
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>proxy</td>
+<td>可以自主配置使用的远程仓库地址</td>
+</tr>
+
+<tr>
+<td>hosted</td>
+<td>内部项目构件发布的仓库类型</td>
+</tr>
+
+<tr>
+<td>virtual</td>
+<td>虚拟仓库类型（基本不用）</td>
+</tr>
+
+<tr>
+<td>group</td>
+<td>可以自由顺序组合多个仓库使用</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="创建仓库">创建仓库</h4>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 创建proxy仓库</label></li>
+</ul>
+
+<p><code>Repository--&gt;Repositories--&gt;Create repository--&gt;maven2(proxy)</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_proxy_repo.png" alt="" /></p>
+
+<p>附阿里云中央仓库地址：<a href="http://maven.aliyun.com/nexus/content/groups/public/">http://maven.aliyun.com/nexus/content/groups/public/</a></p>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 创建第三方构件仓库</label></li>
+</ul>
+
+<p><code>Repository--&gt;Repositories--&gt;Create repository--&gt;maven2(hosted)</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_hosted_repo.png" alt="" /></p>
+
+<p>注：第三方构件包可以手工上传到此仓库。</p>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 配置仓库组</label></li>
+</ul>
+
+<p><code>Repository--&gt;Repositories--&gt;Create repository--&gt;maven2(group)</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_public_repo.png" alt="" /></p>
+
+<p>注：注意仓库的顺序。maven查找依赖时会依次遍历仓库组中的仓库。</p>
+
+<h4 id="创建角色">创建角色</h4>
+
+<p>为第三方构件仓库创建角色：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_component_role.png" alt="" /></p>
+
+<p>创建角色的同时可以为当前创建的角色分配权限。</p>
+
+<h4 id="创建用户">创建用户</h4>
+
+<p>为第三方构件仓库创建用户：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_component_user.png" alt="" /></p>
+
+<p>创建用户并为创建的用户挂上相应的角色。</p>
+
+<h4 id="上传构件到第三方库">上传构件到第三方库</h4>
+
+<p><code>Browse--&gt;3rd.party--&gt;Upload component</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_component_user_upload.png" alt="" /></p>
+
+<p><code>选择上传的JAR包并填写相应的信息</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_component_user_uploading.png" alt="" /></p>
+
+<p><code>上传成功后的视图</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_component_user_upload_success.png" alt="" /></p>
+        </div>
+        
+
+    </div>
+
+    
+
+
+
+</article>
+
+<section id="article-footer-bottom">
+    <div class="cc-copyright-block">
+        <table>
+                <tr>
+                    <td width="12%"><span class="cc-item">本文作者</span>：</td>
+                    <td><a href="https://fanlychie.github.io" title="Fanlychie Blog">Fanlychie</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文标题</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/nexus3-setup/" title="Nexus3搭建Maven私服">Nexus3搭建Maven私服</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文链接</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/nexus3-setup/" title="https://fanlychie.github.io/post/nexus3-setup/">https://fanlychie.github.io/post/nexus3-setup/</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">发布时间</span>：</td>
+                    <td><time datetime="2018-09-22 09:59:59 &#43;0800 CST" itemprop="datePublished">2018年09月22日</time></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">版权声明</span>：</td>
+                    <td>本文采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank"><i class="fa fa-creative-commons"></i>署名-非商业性使用-禁止演绎4.0国际许可协议</a>转载请保留以上声明信息！</td>
+                </tr>
+                
+        </table>
+    </div>
+</section>
+
+
+<section id="comments">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script type="text/javascript">
+        const gitment = new Gitment({
+            id: 'https:\/\/fanlychie.github.io\/post\/nexus3-setup\/',
+            owner: 'fanlychiex',
+            repo: 'fanlychiex.github.io.comment',
+            oauth: {
+                client_id: 'b5097d8f4d2079b8ce4b',
+                client_secret: 'f80e146bc58b149e4f332d63d3b3831925a57e9b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最新文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/readme/" class="title">本站通告</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-27 11:42:46 &#43;0800 CST" itemprop="datePublished">2018-09-27</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-plugins-help/" class="title">Maven Help Plugin</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-24 20:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-super-pom/" class="title">Maven Super POM</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-24 20:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/samda-setup/" class="title">Samda搭建文件共享服务</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-23</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/nexus3-setup/" class="title">Nexus3搭建Maven私服</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-22 09:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-22</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title tagcloud-widget">
+        文章标签
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://fanlychie.github.io/tags/maven" style="font-size: 13px;">maven</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/nexus" style="font-size: 13px;">nexus</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/notepad" style="font-size: 13px;">notepad</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/other" style="font-size: 13px;">other</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/samda" style="font-size: 13px;">samda</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div id="busuanzi_container_site_pv" style="font-size:14px">本站总访客数 <span id="busuanzi_value_site_uv"></span> 人</div>
+    <div id="footer-info" class="inner">
+      &copy; 2018
+      fanlychie.github.io all rights reserved powered by hugo
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://fanlychie.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://fanlychie.github.io/js/script.js"></script>
+<link rel="stylesheet" href="https://libs.cdnjs.net/highlight.js/9.12.0/styles/zenburn.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>

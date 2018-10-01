@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Fanlychie Blog</title>
+    <link>https://fanlychie.github.io/post/</link>
+    <description>Recent content in Posts on Fanlychie Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 27 Sep 2018 11:42:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://fanlychie.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>本站通告</title>
+      <link>https://fanlychie.github.io/post/readme/</link>
+      <pubDate>Thu, 27 Sep 2018 11:42:46 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/readme/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本站已从&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;迁移转到&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;(Hugo自称是&lt;code&gt;The world’s fastest framework for building websites&lt;/code&gt;)。Hugo是一个高效的静态网站生成器，它的生成速度比Hexo更快 (Hexo是真的慢)，且使用Hugo在本地编辑完成保存时，会自动触发浏览器的即时刷新动作，编辑完成就能立即看到文章最终的整体效果，给人的体验感很不错。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;梦回从前，前博客的传送门：&lt;a href=&#34;https://fanlychie.github.io/&#34;&gt;https://fanlychie.github.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Maven Help Plugin</title>
+      <link>https://fanlychie.github.io/post/maven-plugins-help/</link>
+      <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/maven-plugins-help/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://maven.apache.org/plugins/maven-help-plugin&#34;&gt;Maven Help Plugin&lt;/a&gt;可以用来查看相关项目或系统的帮助信息，也可以用来查看其它插件的帮助信息，如插件的目标、参数、使用要求等。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Maven Super POM</title>
+      <link>https://fanlychie.github.io/post/maven-super-pom/</link>
+      <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/maven-super-pom/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;所有maven模块（项目）的POM（Project Object Model，项目对象模型）都隐式的继承了&lt;a href=&#34;http://maven.apache.org/ref/3.5.4/maven-model-builder/super-pom.html&#34;&gt;Super POM&lt;/a&gt;。Super POM中定义了一组标准的配置变量。maven模块（项目）的POM会自动继承这些配置变量，你可以在maven模块（项目）的POM文件中直接使用它们，或者通过重新声明以覆盖它们。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Samda搭建文件共享服务</title>
+      <link>https://fanlychie.github.io/post/samda-setup/</link>
+      <pubDate>Sun, 23 Sep 2018 19:59:59 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/samda-setup/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.samba.org&#34;&gt;Samba&lt;/a&gt;是一套使用SMB(Server Message Block)协议的应用程序，通过支持这个协议，Samba允许Linux服务器与Windows系统之间进行通信，使跨平台的互访成为可能。Samba采用C/S模式，其工作机制是让NetBIOS( Windows网上邻居的通信协议)和SMB两个协议运行于TCP/IP通信协议之上，并且用NetBEUI协议让Windows在“网上邻居”中能浏览Linux服务器。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nexus3搭建Maven私服</title>
+      <link>https://fanlychie.github.io/post/nexus3-setup/</link>
+      <pubDate>Sat, 22 Sep 2018 09:59:59 +0800</pubDate>
+      
+      <guid>https://fanlychie.github.io/post/nexus3-setup/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sonatype.com/download-oss-sonatype&#34;&gt;Sonatype Nexus Repository OSS&lt;/a&gt;自称是&lt;code&gt;The world&#39;s first and only universal repository solution that&#39;s FREE to use&lt;/code&gt;。Nexus是目前用来搭建&lt;a href=&#34;http://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt;私服仓库最多的免费开源工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
