@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fanlychie Blog</title>
-    <link>https://fanlychie.github.io/</link>
+    <link>https://fanlychiex.github.io/</link>
     <description>Recent content on Fanlychie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 03 Nov 2018 11:42:46 +0800</lastBuildDate>
     
-	<atom:link href="https://fanlychie.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fanlychiex.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>本站通告</title>
-      <link>https://fanlychie.github.io/post/readme/</link>
+      <link>https://fanlychiex.github.io/post/readme/</link>
       <pubDate>Sat, 03 Nov 2018 11:42:46 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/readme/</guid>
+      <guid>https://fanlychiex.github.io/post/readme/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本站已从&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;迁移转到&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;(Hugo自称是&lt;code&gt;The world’s fastest framework for building websites&lt;/code&gt;)。Hugo是一个高效的静态网站生成器，它的生成速度比Hexo更快 (Hexo是真的慢)，且使用Hugo在本地编辑完成保存时，会自动触发浏览器的即时刷新动作，编辑完成就能立即看到文章最终的整体效果，给人的体验感很不错。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>Maven多环境构建配置</title>
-      <link>https://fanlychie.github.io/post/maven-profiles/</link>
+      <link>https://fanlychiex.github.io/post/maven-profiles/</link>
       <pubDate>Tue, 25 Sep 2018 23:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-profiles/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-profiles/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;一个项目从开发到最后发布上线，通常需要在多套不同的环境经受反复的测试和验证，例如开发环境、测试环境、预生产环境、生产环境等。项目部署到不同的环境时，项目的配置通常也是不同的，例如数据库的数据源配置等。maven提供了一套&lt;code&gt;profiles&lt;/code&gt;配置，开发者可以在项目POM文件中预先定义好若干个不同环境的&lt;code&gt;profile&lt;/code&gt;配置，项目可以根据不同的构建参数来动态选择其中的一个环境设置。这就意味着相同的一套项目代码，可以在构建时根据传入的不同环境参数打出不同环境的软件包来。这也是maven竭力保证的软件可移植性。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>Maven多模块项目版本管理</title>
-      <link>https://fanlychie.github.io/post/maven-modules-version-manage/</link>
+      <link>https://fanlychiex.github.io/post/maven-modules-version-manage/</link>
       <pubDate>Tue, 25 Sep 2018 22:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-modules-version-manage/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-modules-version-manage/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果一个项目要迭代一个新的版本，特别是对于一些子模块数量较多的项目，那就需要手工的一个一个的去修改各个模块POM中的版本号信息，这显然不是一个最好的做法。&lt;a href=&#34;https://www.mojohaus.org/versions-maven-plugin/index.html&#34;&gt;Versions Maven Plugin&lt;/a&gt;可用于管理控制Maven多模块项目POM中的版本号信息。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -54,10 +54,10 @@
     
     <item>
       <title>Maven多模块项目</title>
-      <link>https://fanlychie.github.io/post/maven-multiple-modules-project/</link>
+      <link>https://fanlychiex.github.io/post/maven-multiple-modules-project/</link>
       <pubDate>Tue, 25 Sep 2018 21:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-multiple-modules-project/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-multiple-modules-project/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;以模块的形式来组织项目，可以使得项目的组织结构更加清晰更易维护，每个模块都可以进行高内聚和独立部署。模块之间的依赖关系可以自由进行组合，以提高软件组件的重用，同时各模块之间能够实现松耦合。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -67,10 +67,10 @@
     
     <item>
       <title>Maven镜像</title>
-      <link>https://fanlychie.github.io/post/maven-mirror/</link>
+      <link>https://fanlychiex.github.io/post/maven-mirror/</link>
       <pubDate>Mon, 24 Sep 2018 21:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-mirror/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-mirror/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果一个仓库X可以提供仓库Y存储的所有构件，那么就可以称仓库X是仓库Y的一个镜像。由于地理位置等原因，国内网络连接Maven官方的中央仓库网速一般较慢或时常出现网络不稳定的状态，从而导致项目在构建所需的时间较长或失败。使用镜像的好处就是，它往往能提供比中央仓库更快的服务（通常选择地理位置上与自己较近且口碑较好的镜像）, 从而提高下载速度, 最终达到提高项目构建效率的目的。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -80,10 +80,10 @@
     
     <item>
       <title>Maven仓库</title>
-      <link>https://fanlychie.github.io/post/maven-repository/</link>
+      <link>https://fanlychiex.github.io/post/maven-repository/</link>
       <pubDate>Mon, 24 Sep 2018 20:52:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-repository/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-repository/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Maven仓库分为两种，一种是本地仓库，一种是远程仓库。&lt;br&gt;本地仓库是maven用来在本地机器上存储从远程仓库下载回来的构件的位置。&lt;br&gt;远程仓库包含了绝大多数流行的开源的java构件，项目依赖的构件一般都可以在这里下载。不同的远程仓库可能包含不同的java构件。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -93,10 +93,10 @@
     
     <item>
       <title>Maven发布构件到私服</title>
-      <link>https://fanlychie.github.io/post/maven-nexus/</link>
+      <link>https://fanlychiex.github.io/post/maven-nexus/</link>
       <pubDate>Mon, 24 Sep 2018 20:42:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-nexus/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-nexus/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;以&lt;a href=&#34;https://fanlychiex.github.io/post/nexus3-setup/&#34;&gt;Nexus3搭建的Maven私服&lt;/a&gt;为例子，用管理员账户登录系统平台，并在管理控制台的配置面板中创建一个用于发布项目构件的账户（注：在Maven中，所有的依赖、插件、项目构建的输出，都可以称作是构件）。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -106,10 +106,10 @@
     
     <item>
       <title>Maven生命周期</title>
-      <link>https://fanlychie.github.io/post/maven-lifecycle/</link>
+      <link>https://fanlychiex.github.io/post/maven-lifecycle/</link>
       <pubDate>Mon, 24 Sep 2018 20:32:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-lifecycle/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-lifecycle/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html&#34;&gt;Maven的生命周期&lt;/a&gt;是对项目所有的构建过程进行抽象和统一。它包含了项目的清理、初始化、编译、测试、打包、部署和站点生成等构建步骤。Maven的生命周期本质是定义项目构建的各个步骤，它本身是抽象的，并不作任何的具体工作，而是将构建过程中的各个步骤任务交个相对应的插件来完成。这使得Maven的生命周期具有良好的扩展性，开发者可以自己编写插件实现代码绑定到构建的某个步骤。当然，在绝大部分场景下，开发者不必这样来做，因为Maven初始为项目构建的各个步骤绑定了默认的插件。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -119,10 +119,10 @@
     
     <item>
       <title>Maven Help Plugin</title>
-      <link>https://fanlychie.github.io/post/maven-plugins-help/</link>
+      <link>https://fanlychiex.github.io/post/maven-plugins-help/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-plugins-help/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-plugins-help/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;http://maven.apache.org/plugins/maven-help-plugin&#34;&gt;Maven Help Plugin&lt;/a&gt;可以用来查看相关项目或系统的帮助信息，也可以用来查看其它插件的帮助信息，如插件的目标、参数、使用要求等。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -132,10 +132,10 @@
     
     <item>
       <title>Maven Super POM</title>
-      <link>https://fanlychie.github.io/post/maven-super-pom/</link>
+      <link>https://fanlychiex.github.io/post/maven-super-pom/</link>
       <pubDate>Mon, 24 Sep 2018 20:22:31 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/maven-super-pom/</guid>
+      <guid>https://fanlychiex.github.io/post/maven-super-pom/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;所有maven模块（项目）的POM（Project Object Model，项目对象模型）都隐式的继承了&lt;a href=&#34;http://maven.apache.org/ref/3.5.4/maven-model-builder/super-pom.html&#34;&gt;Super POM&lt;/a&gt;。Super POM中定义了一组标准的配置变量。maven模块（项目）的POM会自动继承这些配置变量，你可以在maven模块（项目）的POM文件中直接使用它们，或者通过重新声明以覆盖它们。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -145,10 +145,10 @@
     
     <item>
       <title>Samda搭建文件共享服务</title>
-      <link>https://fanlychie.github.io/post/samda-setup/</link>
+      <link>https://fanlychiex.github.io/post/samda-setup/</link>
       <pubDate>Sun, 23 Sep 2018 19:59:59 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/samda-setup/</guid>
+      <guid>https://fanlychiex.github.io/post/samda-setup/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.samba.org&#34;&gt;Samba&lt;/a&gt;是一套使用SMB(Server Message Block)协议的应用程序，通过支持这个协议，Samba允许Linux服务器与Windows系统之间进行通信，使跨平台的互访成为可能。Samba采用C/S模式，其工作机制是让NetBIOS( Windows网上邻居的通信协议)和SMB两个协议运行于TCP/IP通信协议之上，并且用NetBEUI协议让Windows在“网上邻居”中能浏览Linux服务器。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -158,10 +158,10 @@
     
     <item>
       <title>Nexus3搭建Maven私服</title>
-      <link>https://fanlychie.github.io/post/nexus3-setup/</link>
+      <link>https://fanlychiex.github.io/post/nexus3-setup/</link>
       <pubDate>Sat, 22 Sep 2018 09:59:59 +0800</pubDate>
       
-      <guid>https://fanlychie.github.io/post/nexus3-setup/</guid>
+      <guid>https://fanlychiex.github.io/post/nexus3-setup/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.sonatype.com/download-oss-sonatype&#34;&gt;Sonatype Nexus Repository OSS&lt;/a&gt;自称是&lt;code&gt;The world&#39;s first and only universal repository solution that&#39;s FREE to use&lt;/code&gt;。Nexus是目前用来搭建&lt;a href=&#34;http://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt;私服仓库最多的免费开源工具。&lt;/p&gt;
 &lt;/blockquote&gt;
