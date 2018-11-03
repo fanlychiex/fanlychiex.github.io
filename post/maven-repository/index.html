@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Maven仓库 &middot; Fanlychie Blog</title>
+    <meta name="generator" content="Hugo 0.48" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Fanlychie">
+    
+      <meta name="description" content="maven,repository,仓库,本地仓库,远程仓库">
+      <meta name="keywords" content="maven,repository,仓库,本地仓库,远程仓库">
+    
+    
+    <link rel="canonical" href="https://fanlychie.github.io/post/maven-repository/"/>
+    <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/monokai.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Maven仓库" />
+<meta property="og:description" content="maven,repository,仓库,本地仓库,远程仓库" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fanlychie.github.io/post/maven-repository/" /><meta property="article:published_time" content="2018-09-24T20:52:31&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-24T20:52:31&#43;08:00"/>
+    
+    
+<meta itemprop="name" content="Maven仓库">
+<meta itemprop="description" content="maven,repository,仓库,本地仓库,远程仓库">
+
+
+<meta itemprop="datePublished" content="2018-09-24T20:52:31&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-24T20:52:31&#43;08:00" />
+<meta itemprop="wordCount" content="183">
+
+
+
+<meta itemprop="keywords" content="maven,notepad," />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Maven仓库"/>
+<meta name="twitter:description" content="maven,repository,仓库,本地仓库,远程仓库"/>
+
+    
+
+    
+
+    
+    <script src="https://libs.cdnjs.net/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://fanlychie.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('https://fanlychie.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">Fanlychie Blog</span>
+      </a>
+      <nav id="main-nav">
+          
+
+          
+
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+
+          
+
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://fanlychie.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg">
+      
+      <h2 id="name">Fanlychie</h2>
+      <h3 id="title">I do not know where to go , <br> but I have been on the road</h3>
+      
+      
+          <a id="follow" href="https://github.com/fanlychie">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        12
+        <span>Posts</span>
+      </div>
+      <div class="article-info-block">
+        
+          5
+        
+        <span>
+            Tags
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    
+    <h1 itemprop="name">
+        <a class="article-title" href="https://fanlychie.github.io/post/maven-repository/">Maven仓库</a>
+    </h1>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-pencil-square-o"></i>
+            <time datetime="2018-09-24 20:52:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
+            
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-paper-plane-o"></i>
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/notepad">notepad</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>Maven仓库分为两种，一种是本地仓库，一种是远程仓库。<br>本地仓库是maven用来在本地机器上存储从远程仓库下载回来的构件的位置。<br>远程仓库包含了绝大多数流行的开源的java构件，项目依赖的构件一般都可以在这里下载。不同的远程仓库可能包含不同的java构件。</p>
+</blockquote>
+
+<p></p>
+
+<h4 id="本地仓库和远程仓库的关系">本地仓库和远程仓库的关系</h4>
+
+<p>远程仓库又分为：中央仓库（<a href="https://repo.maven.apache.org/maven2">https://repo.maven.apache.org/maven2</a>）、私服（如<a href="https://fanlychiex.github.io/post/nexus3-setup/">Nexus OSS</a>）、其他第三方公共库（如阿里<a href="http://maven.aliyun.com/nexus/content/groups/public">http://maven.aliyun.com/nexus/content/groups/public</a>）</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/maven_repository.png" alt="" /></p>
+
+<p>大部分构件最初都是Maven从远程仓库下载回来存储到本地仓库的（也有一小部分是通过安装命令直接安装到本地仓库的），一旦Maven从远程仓库下载一个构件回来并存储到了本地仓库，只要你不手工删除该构件，同一个版本号的构件永远不需要去远程仓库下载第二次。因为Maven在构建项目查找依赖的构件时都首先会在本地仓库中去查找，如果在本地仓库查找不到才会去远程仓库中查找。一旦Maven在本地仓库查找到了依赖所需的构件，就不会再去远程仓库中去查找和下载了。</p>
+
+<h4 id="maven本地仓库配置">Maven本地仓库配置</h4>
+
+<p>在maven的用户或全局的<code>settings.xml</code>配置文件，如下：</p>
+
+<pre><code class="language-xml">&lt;settings&gt;
+    
+    &lt;localRepository&gt;D:/application/repo/maven&lt;/localRepository&gt;
+    
+&lt;/settings&gt;
+</code></pre>
+
+<p><code>&lt;localRepository&gt;</code>用于指定本地仓库的位置。所有从远程仓库下载回来的构件都存储在这个位置。</p>
+
+<h4 id="maven远程仓库配置">Maven远程仓库配置</h4>
+
+<p>方式一，在maven的用户或全局的<code>settings.xml</code>配置文件中，找到<code>&lt;profiles&gt;</code>配置：</p>
+
+<pre><code class="language-xml">&lt;profiles&gt;
+    &lt;profile&gt;
+        ... ...
+        &lt;repositories&gt;
+            &lt;repository&gt;
+                &lt;id&gt;nexus-maven-snapshots&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-snapshots/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/repository&gt;
+        &lt;/repositories&gt;
+        &lt;pluginRepositories&gt;
+            &lt;pluginRepository&gt;
+                &lt;id&gt;nexus-maven-snapshots&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-snapshots/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/pluginRepository&gt;
+        &lt;/pluginRepositories&gt;
+        ... ...
+    &lt;/profile&gt;
+&lt;/profiles&gt;
+</code></pre>
+
+<p><code>&lt;repositories&gt;</code>和<code>&lt;pluginRepositories&gt;</code>在配置结构和作用上都相似，一个是用来配置远程仓库依赖类型的构件，另外一个是插件类型的构件。<code>&lt;id&gt;</code>必须是唯一的。<code>&lt;url&gt;</code>是这个仓库的地址。</p>
+
+<p>方式二，在项目的<code>pom.xml</code>配置文件中，添加如下代码：</p>
+
+<pre><code class="language-xml">&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;fanlychie-maven-repo&lt;/id&gt;
+        &lt;url&gt;https://raw.github.com/fanlychie/maven-repo/releases&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+</code></pre>
+
+<p>配置结构和在settings.xml中的结构一致。其区别在于，一个是在maven配置文件中配置，一个是在项目pom文件中配置。如果是针对某个或几个项目，可选择方式二来配置。</p>
+
+<h4 id="maven仓库检索顺序">Maven仓库检索顺序</h4>
+
+<p>接下来做一个实验，在maven的用户或全局的<code>settings.xml</code>配置文件中，找到<code>&lt;profiles&gt;</code>配置：<br>
+并且在<code>&lt;repositories&gt;</code>标签中配置多个仓库，并且将仓库的顺序设置为如下（用仓库ID表示）：<br>
+nexus-maven-snapshots → nexus-maven-releases → nexus-maven-3rd.party</p>
+
+<pre><code class="language-xml">&lt;profiles&gt;
+    &lt;profile&gt;
+        &lt;id&gt;jdk7-development&lt;/id&gt;
+        &lt;activation&gt;
+            &lt;jdk&gt;1.7&lt;/jdk&gt;
+            &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+        &lt;/activation&gt;
+        &lt;properties&gt;
+            &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;
+            &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;
+            &lt;maven.compiler.compilerVersion&gt;1.7&lt;/maven.compiler.compilerVersion&gt;
+        &lt;/properties&gt;
+        &lt;repositories&gt;
+            &lt;repository&gt;
+                &lt;id&gt;nexus-maven-snapshots&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-snapshots/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/repository&gt;
+            &lt;repository&gt;
+                &lt;id&gt;nexus-maven-releases&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-releases/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;false&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/repository&gt;
+            &lt;repository&gt;
+                &lt;id&gt;nexus-maven-3rd.party&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/3rd.party/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;false&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/repository&gt;
+        &lt;/repositories&gt;
+        &lt;pluginRepositories&gt;
+            &lt;pluginRepository&gt;
+                &lt;id&gt;nexus-maven-snapshots&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-snapshots/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/pluginRepository&gt;
+            &lt;pluginRepository&gt;
+                &lt;id&gt;nexus-maven-releases&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/maven-releases/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;false&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/pluginRepository&gt;
+            &lt;pluginRepository&gt;
+                &lt;id&gt;nexus-maven-3rd.party&lt;/id&gt;
+                &lt;url&gt;http://10.10.10.121:8081/repository/3rd.party/&lt;/url&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;false&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/pluginRepository&gt;
+        &lt;/pluginRepositories&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;
+</code></pre>
+
+<p>然后在项目的<code>pom.xml</code>配置文件中，添加如下代码：</p>
+
+<pre><code class="language-xml">&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;fanlychie-maven-repo&lt;/id&gt;
+        &lt;url&gt;https://raw.github.com/fanlychie/maven-repo/releases&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+
+&lt;dependencies&gt;
+    &lt;!-- 该构件托管在fanlychie-maven-repo仓库中 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.fanlychie&lt;/groupId&gt;
+        &lt;artifactId&gt;jexcel&lt;/artifactId&gt;
+        &lt;version&gt;2.2.2&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<p>然后在命令行中执行命令：</p>
+
+<pre><code>$ mvn compile
+</code></pre>
+
+<p>命令执行时输出的日志信息：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/mvn_repo_sxt.png" alt="" /></p>
+
+<p>可以看到，maven在下载依赖所需的构件时检索仓库的顺序依次为（仓库ID）：nexus-maven-snapshots → nexus-maven-releases → nexus-maven-3rd.party → fanlychie-maven-repo → central<br>
+其本质的检索顺序是：本地仓库 → maven用户或全局配置文件settings.xml中的仓库 → 项目pom.xml文件中配置的仓库 → maven<a href="https://fanlychiex.github.io/post/maven-super-pom">Super POM</a>中配置的中央仓库<br>
+maven在下载依赖所需的构件时，如果这个构件在本地仓库找得到，就不会再去远程仓库中查找。如果这个构件在本地仓库中查找不到，就会按远程仓库配置时的顺序，去各个仓库里面一个一个的检索，只要这个构件在其中的任意一个仓库中查找到了，就不会再继续检索其他的仓库了。</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/mvn_repo_sxt2.png" alt="" /></p>
+
+<p>这是第二次构建项目时输出的信息，可以看到，在第一次构建成功后，再次构建项目的时候就不会再去远程仓库下载构件了。</p>
+        </div>
+        
+
+    </div>
+
+    
+
+
+
+</article>
+
+<section id="article-footer-bottom">
+    <div class="cc-copyright-block">
+        <table>
+                <tr>
+                    <td width="12%"><span class="cc-item">本文作者</span>：</td>
+                    <td><a href="https://fanlychie.github.io" title="Fanlychie Blog">Fanlychie</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文标题</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/maven-repository/" title="Maven仓库">Maven仓库</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文链接</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/maven-repository/" title="https://fanlychie.github.io/post/maven-repository/">https://fanlychie.github.io/post/maven-repository/</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">发布时间</span>：</td>
+                    <td><time datetime="2018-09-24 20:52:31 &#43;0800 CST" itemprop="datePublished">2018年09月24日</time></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">版权声明</span>：</td>
+                    <td>本文采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank"><i class="fa fa-creative-commons"></i>署名-非商业性使用-禁止演绎4.0国际许可协议</a>转载请保留以上声明信息！</td>
+                </tr>
+                
+        </table>
+    </div>
+</section>
+
+
+<section id="comments">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script type="text/javascript">
+        const gitment = new Gitment({
+            id: 'maven-repository',
+            owner: 'fanlychiex',
+            repo: 'fanlychiex.github.io.comment',
+            oauth: {
+                client_id: 'b5097d8f4d2079b8ce4b',
+                client_secret: 'f80e146bc58b149e4f332d63d3b3831925a57e9b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最新文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/readme/" class="title">本站通告</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-11-03 11:42:46 &#43;0800 CST" itemprop="datePublished">2018-11-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-profiles/" class="title">Maven多环境构建配置</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 23:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-modules-version-manage/" class="title">Maven多模块项目版本管理</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 22:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-multiple-modules-project/" class="title">Maven多模块项目</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-mirror/" class="title">Maven镜像</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-24 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title tagcloud-widget">
+        文章标签
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://fanlychie.github.io/tags/maven" style="font-size: 13px;">maven</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/nexus" style="font-size: 13px;">nexus</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/notepad" style="font-size: 13px;">notepad</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/other" style="font-size: 13px;">other</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/samda" style="font-size: 13px;">samda</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div id="busuanzi_container_site_pv" style="font-size:14px">本站总访客数 <span id="busuanzi_value_site_uv"></span> 人</div>
+    <div id="footer-info" class="inner">
+      &copy; 2018
+      fanlychie.github.io all rights reserved powered by hugo
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://fanlychie.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://fanlychie.github.io/js/script.js"></script>
+<link rel="stylesheet" href="https://libs.cdnjs.net/highlight.js/9.12.0/styles/zenburn.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>

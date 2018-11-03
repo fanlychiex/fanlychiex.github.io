@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>Samda搭建文件共享服务 &middot; Fanlychie Blog</title>
+    <title>Maven多环境构建配置 &middot; Fanlychie Blog</title>
     <meta name="generator" content="Hugo 0.48" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Fanlychie">
     
-      <meta name="description" content="samda,文件共享,linux,安装,配置,链接,访问">
-      <meta name="keywords" content="samda,文件共享,linux,安装,配置,链接,访问">
+      <meta name="description" content="maven,multiple,multi,modules,profile,profiles,多环境,部署,打包,配置">
+      <meta name="keywords" content="maven,multiple,multi,modules,profile,profiles,多环境,部署,打包,配置">
     
     
-    <link rel="canonical" href="https://fanlychie.github.io/post/samda-setup/"/>
+    <link rel="canonical" href="https://fanlychie.github.io/post/maven-profiles/"/>
     <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
@@ -20,28 +20,28 @@
     <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
     
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Samda搭建文件共享服务" />
-<meta property="og:description" content="samda,文件共享,linux,安装,配置,链接,访问" />
+    <meta property="og:title" content="Maven多环境构建配置" />
+<meta property="og:description" content="maven,multiple,multi,modules,profile,profiles,多环境,部署,打包,配置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fanlychie.github.io/post/samda-setup/" /><meta property="article:published_time" content="2018-09-23T19:59:59&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-23T19:59:59&#43;08:00"/>
+<meta property="og:url" content="https://fanlychie.github.io/post/maven-profiles/" /><meta property="article:published_time" content="2018-09-25T23:22:31&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-25T23:22:31&#43;08:00"/>
     
     
-<meta itemprop="name" content="Samda搭建文件共享服务">
-<meta itemprop="description" content="samda,文件共享,linux,安装,配置,链接,访问">
+<meta itemprop="name" content="Maven多环境构建配置">
+<meta itemprop="description" content="maven,multiple,multi,modules,profile,profiles,多环境,部署,打包,配置">
 
 
-<meta itemprop="datePublished" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="dateModified" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="wordCount" content="261">
+<meta itemprop="datePublished" content="2018-09-25T23:22:31&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-25T23:22:31&#43;08:00" />
+<meta itemprop="wordCount" content="294">
 
 
 
-<meta itemprop="keywords" content="samda,notepad," />
+<meta itemprop="keywords" content="maven,notepad," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Samda搭建文件共享服务"/>
-<meta name="twitter:description" content="samda,文件共享,linux,安装,配置,链接,访问"/>
+<meta name="twitter:title" content="Maven多环境构建配置"/>
+<meta name="twitter:description" content="maven,multiple,multi,modules,profile,profiles,多环境,部署,打包,配置"/>
 
     
 
@@ -147,14 +147,14 @@
         <header class="article-header">
     
     <h1 itemprop="name">
-        <a class="article-title" href="https://fanlychie.github.io/post/samda-setup/">Samda搭建文件共享服务</a>
+        <a class="article-title" href="https://fanlychie.github.io/post/maven-profiles/">Maven多环境构建配置</a>
     </h1>
     <div class="article-meta">
 
         
         <div class="article-date">
             <i class="fa fa-pencil-square-o"></i>
-            <time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-23</time>
+            <time datetime="2018-09-25 23:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
             
         </div>
         
@@ -170,7 +170,7 @@
                 <i class="fa fa-paper-plane-o"></i>
                 
                 
-                <a class="article-category-link" href="https://fanlychie.github.io/tags/samda">samda</a>
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
                 &middot;
                 
                 
@@ -185,188 +185,211 @@
 
         <div class="article-entry" itemprop="articleBody">
             <blockquote>
-<p><a href="https://www.samba.org">Samba</a>是一套使用SMB(Server Message Block)协议的应用程序，通过支持这个协议，Samba允许Linux服务器与Windows系统之间进行通信，使跨平台的互访成为可能。Samba采用C/S模式，其工作机制是让NetBIOS( Windows网上邻居的通信协议)和SMB两个协议运行于TCP/IP通信协议之上，并且用NetBEUI协议让Windows在“网上邻居”中能浏览Linux服务器。</p>
+<p>一个项目从开发到最后发布上线，通常需要在多套不同的环境经受反复的测试和验证，例如开发环境、测试环境、预生产环境、生产环境等。项目部署到不同的环境时，项目的配置通常也是不同的，例如数据库的数据源配置等。maven提供了一套<code>profiles</code>配置，开发者可以在项目POM文件中预先定义好若干个不同环境的<code>profile</code>配置，项目可以根据不同的构建参数来动态选择其中的一个环境设置。这就意味着相同的一套项目代码，可以在构建时根据传入的不同环境参数打出不同环境的软件包来。这也是maven竭力保证的软件可移植性。</p>
 </blockquote>
 
 <p></p>
 
-<h4 id="环境">环境</h4>
+<h4 id="多环境配置">多环境配置</h4>
 
-<p><code>CentOS7</code></p>
+<p>项目<code>pom.xml</code>配置示例如下：</p>
 
-<h3 id="安装">安装</h3>
-
-<pre><code># yum -y install samba samba-client samba-winbind-clients.x86_64 cifs-utils.x86_64
+<pre><code class="language-xml">&lt;!-- 多环境构建配置 --&gt;
+&lt;profiles&gt;
+    &lt;!-- 开发环境配置 --&gt;
+    &lt;profile&gt;
+        &lt;!-- 标识符, 可以通过 -P[id] 来激活 --&gt; &lt;!-- -Pdev --&gt;
+        &lt;id&gt;dev&lt;/id&gt;
+        &lt;!-- 激活条件 --&gt;
+        &lt;activation&gt;
+            &lt;!-- 可以通过 -D[name]=[value] 来激活 --&gt; &lt;!-- -Denv=dev --&gt;
+            &lt;property&gt;
+                &lt;name&gt;env&lt;/name&gt;
+                &lt;value&gt;dev&lt;/value&gt;
+            &lt;/property&gt;
+            &lt;!-- 默认激活 --&gt;
+            &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+        &lt;/activation&gt;
+        &lt;!-- 自定义的属性, 可以通过 ${label} 来引用 --&gt; &lt;!-- ${jdbcUrl} --&gt;
+        &lt;properties&gt;
+            &lt;jdbcUrl&gt;jdbc:mysql://localhost:3306/dev&lt;/jdbcUrl&gt;
+        &lt;/properties&gt;
+    &lt;/profile&gt;
+    &lt;!-- 测试环境配置 --&gt;
+    &lt;profile&gt;
+        &lt;!-- 标识符, 可以通过 -P[id] 来激活 --&gt; &lt;!-- -Ptest --&gt;
+        &lt;id&gt;test&lt;/id&gt;
+        &lt;!-- 激活条件 --&gt;
+        &lt;activation&gt;
+            &lt;!-- 可以通过 -D[name]=[value] 来激活 --&gt; &lt;!-- -Denv=dev --&gt;
+            &lt;property&gt;
+                &lt;name&gt;env&lt;/name&gt;
+                &lt;value&gt;test&lt;/value&gt;
+            &lt;/property&gt;
+        &lt;/activation&gt;
+        &lt;!-- 自定义的属性, 可以通过 ${label} 来引用 --&gt; &lt;!-- ${jdbcUrl} --&gt;
+        &lt;properties&gt;
+            &lt;jdbcUrl&gt;jdbc:mysql://localhost:3306/test&lt;/jdbcUrl&gt;
+        &lt;/properties&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;
 </code></pre>
 
-<h3 id="配置文件">配置文件</h3>
+<p>自定义属性<code>&lt;properties&gt;</code>需要配合<code>&lt;resources&gt;</code>使用才能发挥作用：</p>
 
-<pre><code># vim /etc/samba/smb.conf
+<pre><code class="language-xml">&lt;build&gt;
+    &lt;!-- 类路径资源配置, 最终输出到软件包中 --&gt;
+    &lt;resources&gt;
+        &lt;resource&gt;
+            &lt;!-- 资源目录路径, 此路径是相对当前POM文件的位置 --&gt;
+            &lt;directory&gt;src/main/resources&lt;/directory&gt;
+            &lt;!-- filtering=true, 能够代入具体的值替换${label}占位符 --&gt;
+            &lt;filtering&gt;true&lt;/filtering&gt;
+        &lt;/resource&gt;
+    &lt;/resources&gt;
+&lt;/build&gt;
 </code></pre>
 
-<p>添加：</p>
+<p>项目配置文件<code>src/main/resources/environment.properties</code>的内容如下：</p>
 
-<pre><code>[共享文件夹名称]
-        comment = 共享文件夹描述
-        path = 共享文件夹路径
-        public = No
-        write list = developer
-        writable = No
+<pre><code>mysql.jdbc.url = ${jdbcUrl}
 </code></pre>
 
-<ul>
-<li><code>path</code>：为路径地址，需要先创建此目录，777权限</li>
-<li><code>write list</code>：对该目录具有写权限的用户列表，多个用英文逗号分隔</li>
-</ul>
+<p>打包开发环境的软件包：</p>
 
-<p>完整的配置：</p>
-
-<pre><code>[global]
-        workgroup = SAMBA
-        security = user
-        passdb backend = tdbsam
-        printing = cups
-        printcap name = cups
-        load printers = yes
-        cups options = raw
-[homes]
-        comment = Home Directories
-        valid users = %S，%D%w%S
-        browseable = No
-        read only = No
-        inherit acls = Yes
-[printers]
-        comment = All Printers
-        path = /var/tmp
-        printable = Yes
-        create mask = 0600
-        browseable = No
-[print$]
-        comment = Printer Drivers
-        path = /var/lib/samba/drivers
-        write list = @printadmin root
-        force group = @printadmin
-        create mask = 0664
-        directory mask = 0775
-# 所有samda用户都有读写权限；[]里面的文字是最终显示此共享文件夹的名字，可以自定义
-[共享文件柜1]
-        comment = Share Directories
-        path = /data/share/share1
-        public = No
-        writable = Yes
-        printable = No
-# 只有smb2用户有写权限，其它samda用户只有读权限
-[共享文件柜2]
-        comment = Share Directories
-        path = /data/share/share2
-        public = No
-        write list = smb2
-        writable = No
+<pre><code>$ mvn clean -Pdev package
 </code></pre>
 
-<h3 id="防火墙">防火墙</h3>
+<p>或：</p>
 
-<p>开放服务端口</p>
-
-<pre><code># firewall-cmd --permanent --add-port=137/tcp
-# firewall-cmd --permanent --add-port=138/tcp
-# firewall-cmd --permanent --add-port=139/tcp
-# firewall-cmd --permanent --add-port=445/tcp
-# firewall-cmd --reload
+<pre><code>$ mvn clean -Denv=dev package
 </code></pre>
 
-<h3 id="创建用户">创建用户</h3>
+<p>打包测试环境的软件包：</p>
 
-<p>先创建系统用户，或者使用系统当前已有的账户</p>
-
-<pre><code># useradd my_usr_name
+<pre><code>$ mvn clean -Ptest package
 </code></pre>
 
-<pre><code># psswd my_usr_name
+<p>或：</p>
+
+<pre><code>$ mvn clean -Denv=test package
 </code></pre>
 
-<p>添加为samba访问账户</p>
+<h4 id="配置的方式">配置的方式</h4>
 
-<pre><code># smbpasswd -a my_usr_name
+<p>maven支持的<code>profile</code>配置方式主要有以下几种：</p>
+
+<ol>
+<li>与项目相关的<code>profile</code>配置可以定义在项目<code>pom.xml</code>文件中；</li>
+<li>与用户相关的<code>profile</code>配置可以定义在用户<code>settings.xml</code>（<code>%USER_HOME%/.m2/settings.xml</code>）文件中；</li>
+<li>全局的<code>profile</code>配置可以定义在全局<code>settings.xml</code>（<code>%MAVEN_HOME%/.m2/settings.xml</code>）文件中；</li>
+</ol>
+
+<p>外部文件（用户或全局<code>settings.xml</code>文件）方式配置的<code>profile</code>是无法移植的。这种方式你只能通过配置<code>&lt;repositories&gt;</code>、<code>&lt;pluginRepositories&gt;</code>、<code>&lt;properties&gt;</code>三个标签元素来影响构建的过程，但并不能改变构建最终输出的结果。</p>
+
+<p>内嵌配置（项目<code>pom.xml</code>文件）方式配置的<code>profile</code>是在项目内部定义的，因此它具有良好的可移植性。这种方式你有更多的标签元素可选择，并且能够改变构建最终输出的结果。这些标签元素有：</p>
+
+<pre><code class="language-xml">&lt;profile&gt;
+    &lt;!-- 参与构建的模块 --&gt;
+    &lt;modules&gt;...&lt;/modules&gt;
+    &lt;!-- 构件依赖声明 --&gt;
+    &lt;dependencies&gt;...&lt;/dependencies&gt;
+    &lt;!-- 构件依赖管理 --&gt;
+    &lt;dependencyManagement&gt;...&lt;/dependencyManagement&gt;
+    &lt;!-- 构件发布管理 --&gt;
+    &lt;distributionManagement&gt;...&lt;/distributionManagement&gt;
+    &lt;!-- 插件仓库 --&gt;
+    &lt;pluginRepositories&gt;...&lt;/pluginRepositories&gt;
+    &lt;!-- 自定义属性 --&gt;
+    &lt;properties&gt;...&lt;/properties&gt;
+    &lt;!-- 生成站点的报告信息 --&gt;
+    &lt;reporting&gt;...&lt;/reporting&gt;
+    &lt;!-- 构件仓库 --&gt;
+    &lt;repositories&gt;...&lt;/repositories&gt;
+    &lt;!-- 构建配置 --&gt;
+    &lt;build&gt;
+        &lt;!-- 默认的构建目标, 在命令行中如果直接执行mvn没有带生命周期阶段, 则默认执行此处配置的阶段 --&gt;
+        &lt;defaultGoal&gt;...&lt;/defaultGoal&gt;
+        &lt;!-- 类路径资源 --&gt;
+        &lt;resources&gt;...&lt;/resources&gt;
+        &lt;!-- 单元测试的类路径资源 --&gt;
+        &lt;testResources&gt;...&lt;/testResources&gt;
+        &lt;!-- 打包的名称 --&gt;
+        &lt;finalName&gt;...&lt;/finalName&gt;
+    &lt;/build&gt;
+&lt;/profile&gt;
 </code></pre>
 
-<h3 id="启动">启动</h3>
+<h4 id="激活方式">激活方式</h4>
 
-<pre><code># service smb start
+<p>用户或全局<code>settings.xml</code>以及项目<code>pom.xml</code>的配置可以使用<code>&lt;activeByDefault&gt;</code>来激活：</p>
+
+<pre><code class="language-xml">&lt;profile&gt;
+    &lt;id&gt;dev&lt;/id&gt;
+    &lt;activation&gt;
+        &lt;!-- 默认激活 --&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+    &lt;/activation&gt;
+&lt;/profile&gt;
 </code></pre>
 
-<pre><code># systemctl start smb
+<p>用户或全局<code>settings.xml</code>的配置还可以使用<code>&lt;activeProfiles&gt;</code>来激活：</p>
+
+<pre><code class="language-xml">&lt;profile&gt;
+    &lt;id&gt;dev&lt;/id&gt;
+&lt;/profile&gt;
+&lt;activeProfiles&gt;
+    &lt;!-- 根据ID标识符来激活 --&gt;
+    &lt;activeProfile&gt;dev&lt;/activeProfile&gt;
+&lt;/activeProfiles&gt;
 </code></pre>
 
-<h3 id="重启">重启</h3>
+<p>命令行可以使用<code>-P[id]</code>或<code>-P [id]</code>或<code>-P [id1,id2]</code>来激活：</p>
 
-<pre><code># service smb restart
+<pre><code class="language-xml">&lt;profile&gt;
+    &lt;id&gt;dev&lt;/id&gt;
+&lt;/profile&gt;
+&lt;profile&gt;
+    &lt;id&gt;test&lt;/id&gt;
+&lt;/profile&gt;
 </code></pre>
 
-<pre><code># systemctl restart smb
+<pre><code>$ mvn clean -Pdev package
+$ mvn clean -P dev package
+$ mvn clean -P dev,test package
 </code></pre>
 
-<h3 id="停止">停止</h3>
+<p>命令行还可以使用<code>-D[name]=[value]</code>的方式来激活：</p>
 
-<pre><code># service smb stop
+<pre><code class="language-xml">&lt;profile&gt;
+    &lt;activation&gt;
+        &lt;property&gt;
+            &lt;name&gt;env&lt;/name&gt;
+            &lt;value&gt;dev&lt;/value&gt;
+        &lt;/property&gt;
+    &lt;/activation&gt;
+&lt;/profile&gt;
 </code></pre>
 
-<pre><code># systemctl stop smb
+<pre><code>$ mvn clean -Denv=dev package
 </code></pre>
 
-<h3 id="查看进程">查看进程</h3>
+<h4 id="查看激活">查看激活</h4>
 
-<pre><code>$ ps -ef|grep smb
+<pre><code>$ mvn help:active-profiles
 </code></pre>
 
-<h3 id="查看用户">查看用户</h3>
+<p>输出信息示例如下：</p>
 
-<pre><code># pdbedit -L
+<pre><code class="language-html">The following profiles are active:
+
+ - jdk7-development (source: external)
+ - dev (source: org.fanlychie:maven-multiple-modules-sample:0.0.2-SNAPSHOT)
 </code></pre>
 
-<h3 id="删除用户">删除用户</h3>
+<p>文档传送门：<a href="http://maven.apache.org/guides/introduction/introduction-to-profiles.html">http://maven.apache.org/guides/introduction/introduction-to-profiles.html</a></p>
 
-<pre><code># smbpasswd -x my_usr_name
-</code></pre>
-
-<h3 id="访问文件共享服务">访问文件共享服务</h3>
-
-<p>以Windows操作系统为例，按快捷键WIN+R，输入文件共享服务IP地址<code>\\10.10.XX.125</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_cmd.png" alt="" /></p>
-
-<p>接着系统会弹出校验网络凭证的对话框，输入账户名和密码，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_passwd.png" alt="" /></p>
-
-<p>最终的效果图</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_preview.png" alt="" /></p>
-
-<h3 id="更换文件共享服务的登陆账号">更换文件共享服务的登陆账号</h3>
-
-<p>以Windows操作系统为例，由于第一次登陆成功后，操作系统会记住你登陆的账户和密码，以致下次访问时不需要再次登陆。如果想要更换登陆的账户，首先需要清除当前登陆的账户信息。按快捷键WIN+R，输入<code>control userpasswords2</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_upasswd.png" alt="" /></p>
-
-<p>在弹出的对话框中选择高级</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update1.png" alt="" /></span></p>
-
-<p>选择管理密码</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update2.png" alt="" /></span></p>
-
-<p>删除登陆凭证</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update3.png" alt="" /></p>
-
-<p>在<code>cmd</code>中执行以下命令，清除网络共享缓存</p>
-
-<pre><code>net use * /d /y
-</code></pre>
-
-<p>然后重新链接文件共享服务就会弹出校验网络凭证的对话框，输入新的登陆账户和密码登陆即可。</p>
+<p>文档传送门：<a href="http://maven.apache.org/pom.html#Profiles">http://maven.apache.org/pom.html#Profiles</a></p>
         </div>
         
 
@@ -387,15 +410,15 @@
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文标题</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="Samda搭建文件共享服务">Samda搭建文件共享服务</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-profiles/" title="Maven多环境构建配置">Maven多环境构建配置</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文链接</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="https://fanlychie.github.io/post/samda-setup/">https://fanlychie.github.io/post/samda-setup/</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-profiles/" title="https://fanlychie.github.io/post/maven-profiles/">https://fanlychie.github.io/post/maven-profiles/</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">发布时间</span>：</td>
-                    <td><time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018年09月23日</time></td>
+                    <td><time datetime="2018-09-25 23:22:31 &#43;0800 CST" itemprop="datePublished">2018年09月25日</time></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">版权声明</span>：</td>
@@ -412,7 +435,7 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script type="text/javascript">
         const gitment = new Gitment({
-            id: 'samda-setup',
+            id: 'maven-profiles',
             owner: 'fanlychiex',
             repo: 'fanlychiex.github.io.comment',
             oauth: {

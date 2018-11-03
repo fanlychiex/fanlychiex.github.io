@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>Samda搭建文件共享服务 &middot; Fanlychie Blog</title>
+    <title>Maven镜像 &middot; Fanlychie Blog</title>
     <meta name="generator" content="Hugo 0.48" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Fanlychie">
     
-      <meta name="description" content="samda,文件共享,linux,安装,配置,链接,访问">
-      <meta name="keywords" content="samda,文件共享,linux,安装,配置,链接,访问">
+      <meta name="description" content="maven,mirror,mirrors,镜像">
+      <meta name="keywords" content="maven,mirror,mirrors,镜像">
     
     
-    <link rel="canonical" href="https://fanlychie.github.io/post/samda-setup/"/>
+    <link rel="canonical" href="https://fanlychie.github.io/post/maven-mirror/"/>
     <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
@@ -20,28 +20,28 @@
     <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
     
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Samda搭建文件共享服务" />
-<meta property="og:description" content="samda,文件共享,linux,安装,配置,链接,访问" />
+    <meta property="og:title" content="Maven镜像" />
+<meta property="og:description" content="maven,mirror,mirrors,镜像" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fanlychie.github.io/post/samda-setup/" /><meta property="article:published_time" content="2018-09-23T19:59:59&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-23T19:59:59&#43;08:00"/>
+<meta property="og:url" content="https://fanlychie.github.io/post/maven-mirror/" /><meta property="article:published_time" content="2018-09-24T21:22:31&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-24T21:22:31&#43;08:00"/>
     
     
-<meta itemprop="name" content="Samda搭建文件共享服务">
-<meta itemprop="description" content="samda,文件共享,linux,安装,配置,链接,访问">
+<meta itemprop="name" content="Maven镜像">
+<meta itemprop="description" content="maven,mirror,mirrors,镜像">
 
 
-<meta itemprop="datePublished" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="dateModified" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="wordCount" content="261">
+<meta itemprop="datePublished" content="2018-09-24T21:22:31&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-24T21:22:31&#43;08:00" />
+<meta itemprop="wordCount" content="31">
 
 
 
-<meta itemprop="keywords" content="samda,notepad," />
+<meta itemprop="keywords" content="maven,notepad," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Samda搭建文件共享服务"/>
-<meta name="twitter:description" content="samda,文件共享,linux,安装,配置,链接,访问"/>
+<meta name="twitter:title" content="Maven镜像"/>
+<meta name="twitter:description" content="maven,mirror,mirrors,镜像"/>
 
     
 
@@ -147,14 +147,14 @@
         <header class="article-header">
     
     <h1 itemprop="name">
-        <a class="article-title" href="https://fanlychie.github.io/post/samda-setup/">Samda搭建文件共享服务</a>
+        <a class="article-title" href="https://fanlychie.github.io/post/maven-mirror/">Maven镜像</a>
     </h1>
     <div class="article-meta">
 
         
         <div class="article-date">
             <i class="fa fa-pencil-square-o"></i>
-            <time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-23</time>
+            <time datetime="2018-09-24 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
             
         </div>
         
@@ -170,7 +170,7 @@
                 <i class="fa fa-paper-plane-o"></i>
                 
                 
-                <a class="article-category-link" href="https://fanlychie.github.io/tags/samda">samda</a>
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
                 &middot;
                 
                 
@@ -185,188 +185,60 @@
 
         <div class="article-entry" itemprop="articleBody">
             <blockquote>
-<p><a href="https://www.samba.org">Samba</a>是一套使用SMB(Server Message Block)协议的应用程序，通过支持这个协议，Samba允许Linux服务器与Windows系统之间进行通信，使跨平台的互访成为可能。Samba采用C/S模式，其工作机制是让NetBIOS( Windows网上邻居的通信协议)和SMB两个协议运行于TCP/IP通信协议之上，并且用NetBEUI协议让Windows在“网上邻居”中能浏览Linux服务器。</p>
+<p>如果一个仓库X可以提供仓库Y存储的所有构件，那么就可以称仓库X是仓库Y的一个镜像。由于地理位置等原因，国内网络连接Maven官方的中央仓库网速一般较慢或时常出现网络不稳定的状态，从而导致项目在构建所需的时间较长或失败。使用镜像的好处就是，它往往能提供比中央仓库更快的服务（通常选择地理位置上与自己较近且口碑较好的镜像）, 从而提高下载速度, 最终达到提高项目构建效率的目的。</p>
 </blockquote>
 
 <p></p>
 
-<h4 id="环境">环境</h4>
+<p>在maven的用户或全局的<code>settings.xml</code>配置文件中，找到在<code>&lt;mirrors&gt;</code>配置：</p>
 
-<p><code>CentOS7</code></p>
-
-<h3 id="安装">安装</h3>
-
-<pre><code># yum -y install samba samba-client samba-winbind-clients.x86_64 cifs-utils.x86_64
+<pre><code class="language-xml">&lt;mirrors&gt;
+    &lt;mirror&gt;
+        &lt;id&gt;aliyun-maven-repo&lt;/id&gt;
+        &lt;!-- 阿里云公共镜像 --&gt;
+        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+        &lt;!-- 匹配Maven中央仓库, 该ID在超POM中定义的 --&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+&lt;/mirrors&gt;
 </code></pre>
 
-<h3 id="配置文件">配置文件</h3>
+<p><code>&lt;mirror&gt;</code>用于配置一个镜像。<code>&lt;id&gt;</code>必须是唯一的。<code>&lt;url&gt;</code>是镜像的地址。<code>&lt;mirrorOf&gt;</code>用于匹配Maven仓库（<code>&lt;repository&gt;</code>）的ID。常见的匹配规则有：</p>
 
-<pre><code># vim /etc/samba/smb.conf
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>描述</th>
+</tr>
+</thead>
 
-<p>添加：</p>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配所有的Maven仓库ID</td>
+</tr>
 
-<pre><code>[共享文件夹名称]
-        comment = 共享文件夹描述
-        path = 共享文件夹路径
-        public = No
-        write list = developer
-        writable = No
-</code></pre>
+<tr>
+<td>repo1,repo2</td>
+<td>只匹配ID为repo1或repo2的仓库</td>
+</tr>
 
-<ul>
-<li><code>path</code>：为路径地址，需要先创建此目录，777权限</li>
-<li><code>write list</code>：对该目录具有写权限的用户列表，多个用英文逗号分隔</li>
-</ul>
+<tr>
+<td>external:*</td>
+<td>匹配除本地仓库之外的所有仓库</td>
+</tr>
 
-<p>完整的配置：</p>
+<tr>
+<td>*,!repo1</td>
+<td>匹配除ID为repo1之外的所有仓库</td>
+</tr>
+</tbody>
+</table>
 
-<pre><code>[global]
-        workgroup = SAMBA
-        security = user
-        passdb backend = tdbsam
-        printing = cups
-        printcap name = cups
-        load printers = yes
-        cups options = raw
-[homes]
-        comment = Home Directories
-        valid users = %S，%D%w%S
-        browseable = No
-        read only = No
-        inherit acls = Yes
-[printers]
-        comment = All Printers
-        path = /var/tmp
-        printable = Yes
-        create mask = 0600
-        browseable = No
-[print$]
-        comment = Printer Drivers
-        path = /var/lib/samba/drivers
-        write list = @printadmin root
-        force group = @printadmin
-        create mask = 0664
-        directory mask = 0775
-# 所有samda用户都有读写权限；[]里面的文字是最终显示此共享文件夹的名字，可以自定义
-[共享文件柜1]
-        comment = Share Directories
-        path = /data/share/share1
-        public = No
-        writable = Yes
-        printable = No
-# 只有smb2用户有写权限，其它samda用户只有读权限
-[共享文件柜2]
-        comment = Share Directories
-        path = /data/share/share2
-        public = No
-        write list = smb2
-        writable = No
-</code></pre>
+<p>Maven在构建项目的时候，每当一个构件在本地仓库中查找不到时，它就会去远程中央仓库（central，<a href="https://fanlychiex.github.io/post/maven-super-pom">Super POM</a>中声明使用的远程仓库地址）中去下载。如果某个镜像的<code>&lt;mirrorOf&gt;</code>匹配到该仓库（如上面的aliyun-maven-repo镜像），则去这个仓库下载构件的请求就会被该镜像拦截掉，并将此次请求转发到该镜像配置的地址中去下载。本地所有访问远程仓库的请求都被转换成对镜像地址的请求，这就是镜像的作用和意义。</p>
 
-<h3 id="防火墙">防火墙</h3>
-
-<p>开放服务端口</p>
-
-<pre><code># firewall-cmd --permanent --add-port=137/tcp
-# firewall-cmd --permanent --add-port=138/tcp
-# firewall-cmd --permanent --add-port=139/tcp
-# firewall-cmd --permanent --add-port=445/tcp
-# firewall-cmd --reload
-</code></pre>
-
-<h3 id="创建用户">创建用户</h3>
-
-<p>先创建系统用户，或者使用系统当前已有的账户</p>
-
-<pre><code># useradd my_usr_name
-</code></pre>
-
-<pre><code># psswd my_usr_name
-</code></pre>
-
-<p>添加为samba访问账户</p>
-
-<pre><code># smbpasswd -a my_usr_name
-</code></pre>
-
-<h3 id="启动">启动</h3>
-
-<pre><code># service smb start
-</code></pre>
-
-<pre><code># systemctl start smb
-</code></pre>
-
-<h3 id="重启">重启</h3>
-
-<pre><code># service smb restart
-</code></pre>
-
-<pre><code># systemctl restart smb
-</code></pre>
-
-<h3 id="停止">停止</h3>
-
-<pre><code># service smb stop
-</code></pre>
-
-<pre><code># systemctl stop smb
-</code></pre>
-
-<h3 id="查看进程">查看进程</h3>
-
-<pre><code>$ ps -ef|grep smb
-</code></pre>
-
-<h3 id="查看用户">查看用户</h3>
-
-<pre><code># pdbedit -L
-</code></pre>
-
-<h3 id="删除用户">删除用户</h3>
-
-<pre><code># smbpasswd -x my_usr_name
-</code></pre>
-
-<h3 id="访问文件共享服务">访问文件共享服务</h3>
-
-<p>以Windows操作系统为例，按快捷键WIN+R，输入文件共享服务IP地址<code>\\10.10.XX.125</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_cmd.png" alt="" /></p>
-
-<p>接着系统会弹出校验网络凭证的对话框，输入账户名和密码，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_passwd.png" alt="" /></p>
-
-<p>最终的效果图</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_preview.png" alt="" /></p>
-
-<h3 id="更换文件共享服务的登陆账号">更换文件共享服务的登陆账号</h3>
-
-<p>以Windows操作系统为例，由于第一次登陆成功后，操作系统会记住你登陆的账户和密码，以致下次访问时不需要再次登陆。如果想要更换登陆的账户，首先需要清除当前登陆的账户信息。按快捷键WIN+R，输入<code>control userpasswords2</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_upasswd.png" alt="" /></p>
-
-<p>在弹出的对话框中选择高级</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update1.png" alt="" /></span></p>
-
-<p>选择管理密码</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update2.png" alt="" /></span></p>
-
-<p>删除登陆凭证</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update3.png" alt="" /></p>
-
-<p>在<code>cmd</code>中执行以下命令，清除网络共享缓存</p>
-
-<pre><code>net use * /d /y
-</code></pre>
-
-<p>然后重新链接文件共享服务就会弹出校验网络凭证的对话框，输入新的登陆账户和密码登陆即可。</p>
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/mvn_mirror.png" alt="" /></p>
         </div>
         
 
@@ -387,15 +259,15 @@
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文标题</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="Samda搭建文件共享服务">Samda搭建文件共享服务</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-mirror/" title="Maven镜像">Maven镜像</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文链接</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="https://fanlychie.github.io/post/samda-setup/">https://fanlychie.github.io/post/samda-setup/</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-mirror/" title="https://fanlychie.github.io/post/maven-mirror/">https://fanlychie.github.io/post/maven-mirror/</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">发布时间</span>：</td>
-                    <td><time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018年09月23日</time></td>
+                    <td><time datetime="2018-09-24 21:22:31 &#43;0800 CST" itemprop="datePublished">2018年09月24日</time></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">版权声明</span>：</td>
@@ -412,7 +284,7 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script type="text/javascript">
         const gitment = new Gitment({
-            id: 'samda-setup',
+            id: 'maven-mirror',
             owner: 'fanlychiex',
             repo: 'fanlychiex.github.io.comment',
             oauth: {

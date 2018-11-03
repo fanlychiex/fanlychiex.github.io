@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>Samda搭建文件共享服务 &middot; Fanlychie Blog</title>
+    <title>Maven多模块项目版本管理 &middot; Fanlychie Blog</title>
     <meta name="generator" content="Hugo 0.48" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Fanlychie">
     
-      <meta name="description" content="samda,文件共享,linux,安装,配置,链接,访问">
-      <meta name="keywords" content="samda,文件共享,linux,安装,配置,链接,访问">
+      <meta name="description" content="maven,multiple,multi,modules,module,versions,plugin,多模块,项目,版本,控制,管理">
+      <meta name="keywords" content="maven,multiple,multi,modules,module,versions,plugin,多模块,项目,版本,控制,管理">
     
     
-    <link rel="canonical" href="https://fanlychie.github.io/post/samda-setup/"/>
+    <link rel="canonical" href="https://fanlychie.github.io/post/maven-modules-version-manage/"/>
     <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
@@ -20,28 +20,28 @@
     <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
     
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Samda搭建文件共享服务" />
-<meta property="og:description" content="samda,文件共享,linux,安装,配置,链接,访问" />
+    <meta property="og:title" content="Maven多模块项目版本管理" />
+<meta property="og:description" content="maven,multiple,multi,modules,module,versions,plugin,多模块,项目,版本,控制,管理" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fanlychie.github.io/post/samda-setup/" /><meta property="article:published_time" content="2018-09-23T19:59:59&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-23T19:59:59&#43;08:00"/>
+<meta property="og:url" content="https://fanlychie.github.io/post/maven-modules-version-manage/" /><meta property="article:published_time" content="2018-09-25T22:22:31&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-25T22:22:31&#43;08:00"/>
     
     
-<meta itemprop="name" content="Samda搭建文件共享服务">
-<meta itemprop="description" content="samda,文件共享,linux,安装,配置,链接,访问">
+<meta itemprop="name" content="Maven多模块项目版本管理">
+<meta itemprop="description" content="maven,multiple,multi,modules,module,versions,plugin,多模块,项目,版本,控制,管理">
 
 
-<meta itemprop="datePublished" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="dateModified" content="2018-09-23T19:59:59&#43;08:00" />
-<meta itemprop="wordCount" content="261">
+<meta itemprop="datePublished" content="2018-09-25T22:22:31&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-25T22:22:31&#43;08:00" />
+<meta itemprop="wordCount" content="14">
 
 
 
-<meta itemprop="keywords" content="samda,notepad," />
+<meta itemprop="keywords" content="maven,notepad," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Samda搭建文件共享服务"/>
-<meta name="twitter:description" content="samda,文件共享,linux,安装,配置,链接,访问"/>
+<meta name="twitter:title" content="Maven多模块项目版本管理"/>
+<meta name="twitter:description" content="maven,multiple,multi,modules,module,versions,plugin,多模块,项目,版本,控制,管理"/>
 
     
 
@@ -147,14 +147,14 @@
         <header class="article-header">
     
     <h1 itemprop="name">
-        <a class="article-title" href="https://fanlychie.github.io/post/samda-setup/">Samda搭建文件共享服务</a>
+        <a class="article-title" href="https://fanlychie.github.io/post/maven-modules-version-manage/">Maven多模块项目版本管理</a>
     </h1>
     <div class="article-meta">
 
         
         <div class="article-date">
             <i class="fa fa-pencil-square-o"></i>
-            <time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018-09-23</time>
+            <time datetime="2018-09-25 22:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
             
         </div>
         
@@ -170,7 +170,7 @@
                 <i class="fa fa-paper-plane-o"></i>
                 
                 
-                <a class="article-category-link" href="https://fanlychie.github.io/tags/samda">samda</a>
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
                 &middot;
                 
                 
@@ -185,188 +185,27 @@
 
         <div class="article-entry" itemprop="articleBody">
             <blockquote>
-<p><a href="https://www.samba.org">Samba</a>是一套使用SMB(Server Message Block)协议的应用程序，通过支持这个协议，Samba允许Linux服务器与Windows系统之间进行通信，使跨平台的互访成为可能。Samba采用C/S模式，其工作机制是让NetBIOS( Windows网上邻居的通信协议)和SMB两个协议运行于TCP/IP通信协议之上，并且用NetBEUI协议让Windows在“网上邻居”中能浏览Linux服务器。</p>
+<p>如果一个项目要迭代一个新的版本，特别是对于一些子模块数量较多的项目，那就需要手工的一个一个的去修改各个模块POM中的版本号信息，这显然不是一个最好的做法。<a href="https://www.mojohaus.org/versions-maven-plugin/index.html">Versions Maven Plugin</a>可用于管理控制Maven多模块项目POM中的版本号信息。</p>
 </blockquote>
 
 <p></p>
 
-<h4 id="环境">环境</h4>
+<h4 id="versions-set-https-www-mojohaus-org-versions-maven-plugin-set-mojo-html"><a href="https://www.mojohaus.org/versions-maven-plugin/set-mojo.html">versions:set</a></h4>
 
-<p><code>CentOS7</code></p>
+<p>用于设置当前项目的版本。如果当前项目是一个父模块项目，则修改会传播给所有的子模块项目。</p>
 
-<h3 id="安装">安装</h3>
-
-<pre><code># yum -y install samba samba-client samba-winbind-clients.x86_64 cifs-utils.x86_64
+<pre><code>$ mvn versions:set -DnewVersion=0.0.2-SNAPSHOT
 </code></pre>
 
-<h3 id="配置文件">配置文件</h3>
+<p>在项目<code>pom.xml</code>目录下执行此命令，以更新项目POM的版本号信息。以此同时会在此目录下生成一个<code>pom.xml.versionsBackup</code>文件，该文件是执行更新项目版本号信息前，对当前项目<code>pom.xml</code>文件的一个备份文件。</p>
 
-<pre><code># vim /etc/samba/smb.conf
-</code></pre>
+<h4 id="versions-revert">versions:revert</h4>
 
-<p>添加：</p>
+<p>恢复项目<code>pom.xml</code>文件的上一个版本号信息。回滚的过程依赖生成的<code>pom.xml.versionsBackup</code>文件。如果恢复成功，插件会自动删除<code>pom.xml.versionsBackup</code>文件。</p>
 
-<pre><code>[共享文件夹名称]
-        comment = 共享文件夹描述
-        path = 共享文件夹路径
-        public = No
-        write list = developer
-        writable = No
-</code></pre>
+<h4 id="versions-commit">versions:commit</h4>
 
-<ul>
-<li><code>path</code>：为路径地址，需要先创建此目录，777权限</li>
-<li><code>write list</code>：对该目录具有写权限的用户列表，多个用英文逗号分隔</li>
-</ul>
-
-<p>完整的配置：</p>
-
-<pre><code>[global]
-        workgroup = SAMBA
-        security = user
-        passdb backend = tdbsam
-        printing = cups
-        printcap name = cups
-        load printers = yes
-        cups options = raw
-[homes]
-        comment = Home Directories
-        valid users = %S，%D%w%S
-        browseable = No
-        read only = No
-        inherit acls = Yes
-[printers]
-        comment = All Printers
-        path = /var/tmp
-        printable = Yes
-        create mask = 0600
-        browseable = No
-[print$]
-        comment = Printer Drivers
-        path = /var/lib/samba/drivers
-        write list = @printadmin root
-        force group = @printadmin
-        create mask = 0664
-        directory mask = 0775
-# 所有samda用户都有读写权限；[]里面的文字是最终显示此共享文件夹的名字，可以自定义
-[共享文件柜1]
-        comment = Share Directories
-        path = /data/share/share1
-        public = No
-        writable = Yes
-        printable = No
-# 只有smb2用户有写权限，其它samda用户只有读权限
-[共享文件柜2]
-        comment = Share Directories
-        path = /data/share/share2
-        public = No
-        write list = smb2
-        writable = No
-</code></pre>
-
-<h3 id="防火墙">防火墙</h3>
-
-<p>开放服务端口</p>
-
-<pre><code># firewall-cmd --permanent --add-port=137/tcp
-# firewall-cmd --permanent --add-port=138/tcp
-# firewall-cmd --permanent --add-port=139/tcp
-# firewall-cmd --permanent --add-port=445/tcp
-# firewall-cmd --reload
-</code></pre>
-
-<h3 id="创建用户">创建用户</h3>
-
-<p>先创建系统用户，或者使用系统当前已有的账户</p>
-
-<pre><code># useradd my_usr_name
-</code></pre>
-
-<pre><code># psswd my_usr_name
-</code></pre>
-
-<p>添加为samba访问账户</p>
-
-<pre><code># smbpasswd -a my_usr_name
-</code></pre>
-
-<h3 id="启动">启动</h3>
-
-<pre><code># service smb start
-</code></pre>
-
-<pre><code># systemctl start smb
-</code></pre>
-
-<h3 id="重启">重启</h3>
-
-<pre><code># service smb restart
-</code></pre>
-
-<pre><code># systemctl restart smb
-</code></pre>
-
-<h3 id="停止">停止</h3>
-
-<pre><code># service smb stop
-</code></pre>
-
-<pre><code># systemctl stop smb
-</code></pre>
-
-<h3 id="查看进程">查看进程</h3>
-
-<pre><code>$ ps -ef|grep smb
-</code></pre>
-
-<h3 id="查看用户">查看用户</h3>
-
-<pre><code># pdbedit -L
-</code></pre>
-
-<h3 id="删除用户">删除用户</h3>
-
-<pre><code># smbpasswd -x my_usr_name
-</code></pre>
-
-<h3 id="访问文件共享服务">访问文件共享服务</h3>
-
-<p>以Windows操作系统为例，按快捷键WIN+R，输入文件共享服务IP地址<code>\\10.10.XX.125</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_cmd.png" alt="" /></p>
-
-<p>接着系统会弹出校验网络凭证的对话框，输入账户名和密码，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_passwd.png" alt="" /></p>
-
-<p>最终的效果图</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_preview.png" alt="" /></p>
-
-<h3 id="更换文件共享服务的登陆账号">更换文件共享服务的登陆账号</h3>
-
-<p>以Windows操作系统为例，由于第一次登陆成功后，操作系统会记住你登陆的账户和密码，以致下次访问时不需要再次登陆。如果想要更换登陆的账户，首先需要清除当前登陆的账户信息。按快捷键WIN+R，输入<code>control userpasswords2</code>，回车</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_upasswd.png" alt="" /></p>
-
-<p>在弹出的对话框中选择高级</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update1.png" alt="" /></span></p>
-
-<p>选择管理密码</p>
-
-<p><span><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update2.png" alt="" /></span></p>
-
-<p>删除登陆凭证</p>
-
-<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/samba_update3.png" alt="" /></p>
-
-<p>在<code>cmd</code>中执行以下命令，清除网络共享缓存</p>
-
-<pre><code>net use * /d /y
-</code></pre>
-
-<p>然后重新链接文件共享服务就会弹出校验网络凭证的对话框，输入新的登陆账户和密码登陆即可。</p>
+<p>提交项目版本号信息的修改。提交后插件会自动删除<code>pom.xml.versionsBackup</code>文件。</p>
         </div>
         
 
@@ -387,15 +226,15 @@
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文标题</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="Samda搭建文件共享服务">Samda搭建文件共享服务</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-modules-version-manage/" title="Maven多模块项目版本管理">Maven多模块项目版本管理</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">本文链接</span>：</td>
-                    <td><a href="https://fanlychie.github.io/post/samda-setup/" title="https://fanlychie.github.io/post/samda-setup/">https://fanlychie.github.io/post/samda-setup/</a></td>
+                    <td><a href="https://fanlychie.github.io/post/maven-modules-version-manage/" title="https://fanlychie.github.io/post/maven-modules-version-manage/">https://fanlychie.github.io/post/maven-modules-version-manage/</a></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">发布时间</span>：</td>
-                    <td><time datetime="2018-09-23 19:59:59 &#43;0800 CST" itemprop="datePublished">2018年09月23日</time></td>
+                    <td><time datetime="2018-09-25 22:22:31 &#43;0800 CST" itemprop="datePublished">2018年09月25日</time></td>
                 </tr>
                 <tr>
                     <td><span class="cc-item">版权声明</span>：</td>
@@ -412,7 +251,7 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script type="text/javascript">
         const gitment = new Gitment({
-            id: 'samda-setup',
+            id: 'maven-modules-version-manage',
             owner: 'fanlychiex',
             repo: 'fanlychiex.github.io.comment',
             oauth: {

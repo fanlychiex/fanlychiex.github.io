@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Maven多模块项目 &middot; Fanlychie Blog</title>
+    <meta name="generator" content="Hugo 0.48" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Fanlychie">
+    
+      <meta name="description" content="maven,multiple,multi,modules,module,project,多模块,项目">
+      <meta name="keywords" content="maven,multiple,multi,modules,module,project,多模块,项目">
+    
+    
+    <link rel="canonical" href="https://fanlychie.github.io/post/maven-multiple-modules-project/"/>
+    <link rel="icon" href="https://fanlychie.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="https://fanlychie.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/style.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/css/monokai.css">
+    <link rel="stylesheet" href="https://fanlychie.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC%7CRoboto:400,700%7CRoboto+Slab%7CRoboto+Condensed' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Maven多模块项目" />
+<meta property="og:description" content="maven,multiple,multi,modules,module,project,多模块,项目" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fanlychie.github.io/post/maven-multiple-modules-project/" /><meta property="article:published_time" content="2018-09-25T21:22:31&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-25T21:22:31&#43;08:00"/>
+    
+    
+<meta itemprop="name" content="Maven多模块项目">
+<meta itemprop="description" content="maven,multiple,multi,modules,module,project,多模块,项目">
+
+
+<meta itemprop="datePublished" content="2018-09-25T21:22:31&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-25T21:22:31&#43;08:00" />
+<meta itemprop="wordCount" content="399">
+
+
+
+<meta itemprop="keywords" content="maven,notepad," />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Maven多模块项目"/>
+<meta name="twitter:description" content="maven,multiple,multi,modules,module,project,多模块,项目"/>
+
+    
+
+    
+
+    
+    <script src="https://libs.cdnjs.net/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://fanlychie.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('https://fanlychie.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">Fanlychie Blog</span>
+      </a>
+      <nav id="main-nav">
+          
+
+          
+
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+
+          
+
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://fanlychie.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://fanlychie.github.io/css/images/myavatar.jpg">
+      
+      <h2 id="name">Fanlychie</h2>
+      <h3 id="title">I do not know where to go , <br> but I have been on the road</h3>
+      
+      
+          <a id="follow" href="https://github.com/fanlychie">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        12
+        <span>Posts</span>
+      </div>
+      <div class="article-info-block">
+        
+          5
+        
+        <span>
+            Tags
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+
+        <header class="article-header">
+    
+    <h1 itemprop="name">
+        <a class="article-title" href="https://fanlychie.github.io/post/maven-multiple-modules-project/">Maven多模块项目</a>
+    </h1>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-pencil-square-o"></i>
+            <time datetime="2018-09-25 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+            
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-paper-plane-o"></i>
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/maven">maven</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://fanlychie.github.io/tags/notepad">notepad</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>以模块的形式来组织项目，可以使得项目的组织结构更加清晰更易维护，每个模块都可以进行高内聚和独立部署。模块之间的依赖关系可以自由进行组合，以提高软件组件的重用，同时各模块之间能够实现松耦合。</p>
+</blockquote>
+
+<p></p>
+
+<h4 id="水平项目布局">水平项目布局</h4>
+
+<p>水平项目布局（Flat Project Layout）指的是父模块项目与子模块项目处于同一级目录下。</p>
+
+<pre><code class="language-html">maven-multiple-modules-project  // 项目根目录
+  |
+  |— parent-module                  // 父模块项目
+  |      |— pom.xml (pom)
+  |
+  |— child1-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— child2-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— child3-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (war)
+  |
+</code></pre>
+
+<h4 id="分层项目布局">分层项目布局</h4>
+
+<p>分层项目布局（Hierachical Project Layout）指的是父模块项目作为父目录，该目录下包含了所有的子模块项目。</p>
+
+<pre><code class="language-html">maven-multiple-modules-project  // 父模块项目
+  |
+  |— pom.xml (pom)
+  |
+  |— child1-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— child2-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— child3-module                  // 子模块项目
+  |      |— src
+  |      |— pom.xml (war)
+  |
+</code></pre>
+
+<h4 id="项目布局的差异">项目布局的差异</h4>
+
+<p>水平和分层结构布局的最主要差异在于父模块<code>pom.xml</code>文件是否与子模块处于同一级目录中。分层项目布局父模块<code>pom.xml</code>文件与子模块处在同一级目录中，而水平项目布局的方式是处在不同级目录。在多模块项目结构中，当父模块<code>pom.xml</code>文件与子模块处在同一级目录时，它能够给我们带来许多方便之处。如在父模块POM文件中声明子模块时，分层项目布局的声明方式为：</p>
+
+<pre><code class="language-xml">&lt;modules&gt;
+    &lt;module&gt;child1-module&lt;/module&gt;
+    &lt;module&gt;child2-module&lt;/module&gt;
+    &lt;module&gt;child3-module&lt;/module&gt;
+&lt;/modules&gt;
+</code></pre>
+
+<p>而水平项目布局的声明方式（因其父模块POM文件与子模块处在不同级的目录中）：</p>
+
+<pre><code class="language-xml">&lt;modules&gt;
+    &lt;module&gt;../child1-module&lt;/module&gt;
+    &lt;module&gt;../child2-module&lt;/module&gt;
+    &lt;module&gt;../child3-module&lt;/module&gt;
+&lt;/modules&gt;
+</code></pre>
+
+<p>显然第一种方式要比第二种更加简洁。总的来说，推荐使用分层项目布局的方式来组织项目的结构。</p>
+
+<h4 id="创建分层结构布局的项目">创建分层结构布局的项目</h4>
+
+<p>demo源码：<a href="https://github.com/fanlychie/maven-multiple-modules-samples/tree/master/hierachical-project-layout/maven-multiple-modules-sample">https://github.com/fanlychie/maven-multiple-modules-samples/tree/master/hierachical-project-layout/maven-multiple-modules-sample</a></p>
+
+<pre><code class="language-html">maven-multiple-modules-project  // 父模块项目
+  |
+  |— pom.xml (pom)
+  |
+  |— user-facade                    // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— user-service                   // 子模块项目
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— blog-web                       // 子模块项目
+  |      |— src
+  |      |— pom.xml (war)
+  |
+</code></pre>
+
+<p>创建父模块项目<code>maven-multiple-modules-sample</code>：</p>
+
+<pre><code>mvn archetype:generate -DgroupId=org.fanlychie -DartifactId=maven-multiple-modules-sample -Dversion=0.0.1-SNAPSHOT
+</code></pre>
+
+<p>进入父模块目录：</p>
+
+<pre><code>cd maven-multiple-modules-sample
+</code></pre>
+
+<p>删除父模块的<code>src</code>目录（父模块是一个没有源代码的项目，因此不需要<code>src</code>目录）：</p>
+
+<pre><code>rd /s/q src
+</code></pre>
+
+<p>父模块项目的打包类型必须为<code>pom</code>，修改<code>pom.xml</code>的打包类型如下：</p>
+
+<pre><code class="language-xml">&lt;packaging&gt;pom&lt;/packaging&gt;
+</code></pre>
+
+<p>创建子模块项目<code>user-facade</code>：</p>
+
+<pre><code>mvn archetype:generate -DgroupId=org.fanlychie -DartifactId=user-facade -Dversion=0.0.1-SNAPSHOT
+</code></pre>
+
+<p>子模块<code>pom.xml</code>文件中会自动生成其父模块信息：</p>
+
+<pre><code>&lt;parent&gt;
+    &lt;groupId&gt;org.fanlychie&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-multiple-modules-sample&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+&lt;/parent&gt;
+</code></pre>
+
+<p>创建子模块项目<code>user-service</code></p>
+
+<pre><code>mvn archetype:generate -DgroupId=org.fanlychie -DartifactId=user-service -Dversion=0.0.1-SNAPSHOT
+</code></pre>
+
+<p>创建子模块项目<code>blog-web</code>：</p>
+
+<pre><code>mvn archetype:generate -DgroupId=org.fanlychie -DartifactId=blog-web -Dversion=0.0.1-SNAPSHOT -DarchetypeArtifactId=maven-archetype-webapp
+</code></pre>
+
+<p>在父模块POM文件中使用<code>&lt;modules&gt;</code>声明其子模块：</p>
+
+<pre><code class="language-xml">&lt;!-- modules:
+     声明子模块。模块间的先后顺序是没有要求的，maven不需要开发者考虑模块间的依赖关系，
+     maven在构建项目时，它会对模块自动进行拓扑排序并确保在依赖模块之前构建依赖的模块项目。
+     module:
+     它的值通常是子模块项目相对于父模块POM文件的相对路径的名称。
+--&gt;
+&lt;modules&gt;
+    &lt;module&gt;user-facade&lt;/module&gt;
+    &lt;module&gt;user-service&lt;/module&gt;
+    &lt;module&gt;blog-web&lt;/module&gt;
+&lt;/modules&gt;
+</code></pre>
+
+<p>将项目导入<code>IntelliJ IDEA</code>（主流的JAVA IDE开发工具）。菜单：<code>File --&gt; Open...</code>选择父模块项目：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_1.png" alt="" /></p>
+
+<p>项目导入到<code>IntelliJ IDEA</code>后，<code>IntelliJ IDEA</code>能够识别并自动将各个模块转换成maven项目。如图示：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_2.png" alt="" /></p>
+
+<p>在命令行中执行打包项目的命令，如在<code>cmd</code>中到父模块根目录下执行：</p>
+
+<pre><code>$ mvn clean -Dmaven.test.skip package
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_3.png" alt="" /></p>
+
+<p>可以看到，maven在构建多模块项目时，它会根据模块之间的依赖关系，整理出一个新的构建顺序，然后再按这个顺序来构建各个模块。构建完成之后，会在各个子模块项目的<code>target</code>目录下生成输出相对应的<code>jar</code>或<code>war</code>软件包。</p>
+
+<p>在<code>IntelliJ IDEA</code>中运行web项目：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_4.png" alt="" /></p>
+
+<p>文档传送门：<a href="http://maven.apache.org/plugins/maven-eclipse-plugin/reactor.html">http://maven.apache.org/plugins/maven-eclipse-plugin/reactor.html</a></p>
+
+<h4 id="创建水平结构布局的项目">创建水平结构布局的项目</h4>
+
+<p>demo源码：<a href="https://github.com/fanlychie/maven-multiple-modules-samples/tree/master/flat-project-layout/maven-multiple-modules-sample">https://github.com/fanlychie/maven-multiple-modules-samples/tree/master/flat-project-layout/maven-multiple-modules-sample</a></p>
+
+<pre><code class="language-html">maven-multiple-modules-sample   // 项目根目录
+  |
+  |— parent-module                  // 父模块项目
+  |      |— pom.xml (pom)
+  |
+  |— user-facade                    // 子模块项目, 用户接口层
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— user-service                   // 子模块项目, 用户业务层
+  |      |— src
+  |      |— pom.xml (jar)
+  |
+  |— blog-web                       // 子模块项目, 访问控制层
+  |      |— src
+  |      |— pom.xml (war)
+  |
+</code></pre>
+
+<p>按分层结构布局方式创建多模块项目，然后在项目根目录<code>maven-multiple-modules-sample</code>下创建父模块目录<code>parent-module</code>，并将<code>maven-multiple-modules-sample/pom.xml</code>文件移动到<code>parent-module</code>文件中。修改<code>parent-module/pom.xml</code>（<code>&lt;artifactId&gt;</code>、<code>&lt;name&gt;</code>、<code>&lt;modules&gt;</code>）配置如下：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;org.fanlychie&lt;/groupId&gt;
+    &lt;artifactId&gt;parent-module&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;name&gt;parent-module&lt;/name&gt;
+    &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+    &lt;!-- 子模块的相对路径（相对父模块pom.xml的路径） --&gt;
+    &lt;modules&gt;
+        &lt;module&gt;../user-facade&lt;/module&gt;
+        &lt;module&gt;../user-service&lt;/module&gt;
+        &lt;module&gt;../blog-web&lt;/module&gt;
+    &lt;/modules&gt;
+&lt;/project&gt;
+</code></pre>
+
+<p>子模块项目<code>pom.xml</code>配置文件中继承父模块部分的配置修改为：</p>
+
+<pre><code class="language-xml">&lt;parent&gt;
+    &lt;groupId&gt;org.fanlychie&lt;/groupId&gt;
+    &lt;artifactId&gt;parent-module&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;!-- 用于指定父模块POM的相对路径。它的默认值是&quot;../&quot; --&gt;
+    &lt;relativePath&gt;../parent-module&lt;/relativePath&gt;
+&lt;/parent&gt;
+</code></pre>
+
+<p>子模块POM继承父模块POM，在子模块POM配置中<code>&lt;relativePath&gt;</code>用于指定其父模块的POM文件的相对路径。如果<code>&lt;relativePath&gt;</code>配置的值是一个目录，则默认寻找该目录下的<code>/pom.xml</code>文件。即等效于：</p>
+
+<pre><code class="language-xml">&lt;parent&gt;
+    &lt;groupId&gt;org.fanlychie&lt;/groupId&gt;
+    &lt;artifactId&gt;parent-module&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;!-- 用于指定父模块POM的相对路径。它的默认值是&quot;../&quot; --&gt;
+    &lt;relativePath&gt;../parent-module/pom.xml&lt;/relativePath&gt;
+&lt;/parent&gt;
+</code></pre>
+
+<p>将项目导入<code>IntelliJ IDEA</code>。菜单：<code>File --&gt; Open...</code>选择项目的根目录：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_1.png" alt="" /></p>
+
+<p>导入后是一个普通文件目录，<code>IntelliJ IDEA</code>不能够识别出是maven项目，如图示：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_2.png" alt="" /></p>
+
+<p>接下来需要将项目转换为maven项目，菜单：<code>File --&gt; New --&gt; Module from Existing Sources...</code></p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/maven_m_p3.png" alt="" /></p>
+
+<p>仍然选到项目的根目录：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_3.png" alt="" /></p>
+
+<p>选择maven，点击下一步：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_4.png" alt="" /></p>
+
+<p>勾选复选框<code>Search for projects recursively</code>递归搜索项目：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_5.png" alt="" /></p>
+
+<p>选择maven构建环境：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_6.png" alt="" /></p>
+
+<p>直接下一步：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_7.png" alt="" /></p>
+
+<p>选择编译使用的JDK版本，点击完成按钮：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_8.png" alt="" /></p>
+
+<p>如果项目还报找不到JDK的问题，按快捷键<code>Ctrl+Alt+Shift+S</code>重新选择JDK：</p>
+
+<p><img src="https://raw.githubusercontent.com/fanlychie/mdimg/master/m_m_m_p_f_9.png" alt="" /></p>
+
+<h4 id="子模块可继承的pom元素">子模块可继承的POM元素</h4>
+
+<p>父模块项目POM配置文件中的大部分元素信息能够被子模块所继承，这些元素有：</p>
+
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>groupId</strong></td>
+<td>项目组ID</td>
+</tr>
+
+<tr>
+<td><strong>version</strong></td>
+<td>项目版本号</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>项目描述信息</td>
+</tr>
+
+<tr>
+<td>url</td>
+<td>项目的地址</td>
+</tr>
+
+<tr>
+<td>inceptionYear</td>
+<td>项目成立年份</td>
+</tr>
+
+<tr>
+<td>organization</td>
+<td>项目的组织信息</td>
+</tr>
+
+<tr>
+<td>licenses</td>
+<td>项目许可证</td>
+</tr>
+
+<tr>
+<td>developers</td>
+<td>项目开发者信息</td>
+</tr>
+
+<tr>
+<td>contributors</td>
+<td>项目贡献者信息</td>
+</tr>
+
+<tr>
+<td>mailingLists</td>
+<td>项目的邮件列表</td>
+</tr>
+
+<tr>
+<td>scm</td>
+<td>项目源代码管理系统信息</td>
+</tr>
+
+<tr>
+<td>issueManagement</td>
+<td>项目缺陷跟踪管理系统信息</td>
+</tr>
+
+<tr>
+<td><strong>properties</strong></td>
+<td>项目自定义的属性</td>
+</tr>
+
+<tr>
+<td><strong>dependencyManagement</strong></td>
+<td>项目的依赖管理配置</td>
+</tr>
+
+<tr>
+<td><strong>dependencies</strong></td>
+<td>项目的依赖配置</td>
+</tr>
+
+<tr>
+<td><strong>repositories</strong></td>
+<td>项目的仓库配置</td>
+</tr>
+
+<tr>
+<td><strong>pluginRepositories</strong></td>
+<td>项目的插件仓库配置</td>
+</tr>
+
+<tr>
+<td><strong>build</strong></td>
+<td>项目的构建配置</td>
+</tr>
+
+<tr>
+<td><strong>profiles</strong></td>
+<td>项目的环境配置</td>
+</tr>
+</tbody>
+</table>
+
+<p>文档传送门：<a href="http://maven.apache.org/pom.html#Inheritance">http://maven.apache.org/pom.html#Inheritance</a></p>
+        </div>
+        
+
+    </div>
+
+    
+
+
+
+</article>
+
+<section id="article-footer-bottom">
+    <div class="cc-copyright-block">
+        <table>
+                <tr>
+                    <td width="12%"><span class="cc-item">本文作者</span>：</td>
+                    <td><a href="https://fanlychie.github.io" title="Fanlychie Blog">Fanlychie</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文标题</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/maven-multiple-modules-project/" title="Maven多模块项目">Maven多模块项目</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文链接</span>：</td>
+                    <td><a href="https://fanlychie.github.io/post/maven-multiple-modules-project/" title="https://fanlychie.github.io/post/maven-multiple-modules-project/">https://fanlychie.github.io/post/maven-multiple-modules-project/</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">发布时间</span>：</td>
+                    <td><time datetime="2018-09-25 21:22:31 &#43;0800 CST" itemprop="datePublished">2018年09月25日</time></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">版权声明</span>：</td>
+                    <td>本文采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank"><i class="fa fa-creative-commons"></i>署名-非商业性使用-禁止演绎4.0国际许可协议</a>转载请保留以上声明信息！</td>
+                </tr>
+                
+        </table>
+    </div>
+</section>
+
+
+<section id="comments">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script type="text/javascript">
+        const gitment = new Gitment({
+            id: 'maven-multiple-modules-project',
+            owner: 'fanlychiex',
+            repo: 'fanlychiex.github.io.comment',
+            oauth: {
+                client_id: 'b5097d8f4d2079b8ce4b',
+                client_secret: 'f80e146bc58b149e4f332d63d3b3831925a57e9b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最新文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/readme/" class="title">本站通告</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-11-03 11:42:46 &#43;0800 CST" itemprop="datePublished">2018-11-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-profiles/" class="title">Maven多环境构建配置</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 23:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-modules-version-manage/" class="title">Maven多模块项目版本管理</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 22:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-multiple-modules-project/" class="title">Maven多模块项目</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-25 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-25</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://fanlychie.github.io/post/maven-mirror/" class="title">Maven镜像</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-09-24 21:22:31 &#43;0800 CST" itemprop="datePublished">2018-09-24</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title tagcloud-widget">
+        文章标签
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://fanlychie.github.io/tags/maven" style="font-size: 13px;">maven</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/nexus" style="font-size: 13px;">nexus</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/notepad" style="font-size: 13px;">notepad</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/other" style="font-size: 13px;">other</a>
+        
+        
+        <a href="https://fanlychie.github.io/tags/samda" style="font-size: 13px;">samda</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div id="busuanzi_container_site_pv" style="font-size:14px">本站总访客数 <span id="busuanzi_value_site_uv"></span> 人</div>
+    <div id="footer-info" class="inner">
+      &copy; 2018
+      fanlychie.github.io all rights reserved powered by hugo
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://fanlychie.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://fanlychie.github.io/js/script.js"></script>
+<link rel="stylesheet" href="https://libs.cdnjs.net/highlight.js/9.12.0/styles/zenburn.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>
